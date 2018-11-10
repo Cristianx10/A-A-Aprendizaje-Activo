@@ -2,13 +2,17 @@ package FirebaseConexion;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class FirebaseConexion {
+public class FirebaseConexion implements Firebase_value{
 
     static FirebaseConexion fc;
     static FirebaseAuth auth;
@@ -23,19 +27,25 @@ public class FirebaseConexion {
         ref = database.getReference();
     }
 
+    public static void inicilizarExtra(){
+
+    }
+
     public static void getIntance(){
-        if(fc != null){
+        if(fc == null){
             fc = new FirebaseConexion();
         }
         user = auth.getCurrentUser();
+        inicilizarExtra();
     }
 
     public static void getIntance(Activity main){
-        if(fc != null){
+        if(fc == null){
             fc = new FirebaseConexion();
         }
         user = auth.getCurrentUser();
         activity = main;
+        inicilizarExtra();
     }
 
 
@@ -88,6 +98,42 @@ public class FirebaseConexion {
 
     public static FirebaseUser getUser() {
         return user;
+    }
+
+
+
+    //Actividad de login del usuario
+
+    public static void loginActivity(String user, String email, final ValidarAutentication formulario){
+        auth.signInWithEmailAndPassword(user, email).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    formulario.taskIsSuccessful(task);
+                }else{
+                    formulario.errorTaskException(task);
+                }
+            }
+        });
+    }
+
+    public static void registroActivity(String user, String email, final ValidarAutentication formulario){
+        auth.createUserWithEmailAndPassword(user, email).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    formulario.taskIsSuccessful(task);
+                }else{
+                    formulario.errorTaskException(task);
+                }
+            }
+        });
+    }
+
+
+    public interface ValidarAutentication{
+        public void taskIsSuccessful(@NonNull Task<AuthResult> task);
+        public void errorTaskException(@NonNull Task<AuthResult> task);
     }
 
 }

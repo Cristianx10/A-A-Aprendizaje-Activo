@@ -7,9 +7,21 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/login_nombre"/>
+
+    <EditText
+        android:id="@+id/btn_registro_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/login_nombre"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/login_email"/>
 
     <EditText
+        android:id="@+id/btn_registro_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_hint_email"/>
@@ -18,6 +30,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login_contrasena"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/login_hint_contrasena"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_confirmar_contrasena"/>
 
     <EditText
         android:layout_width="match_parent"
