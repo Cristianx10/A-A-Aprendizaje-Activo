@@ -1,4 +1,4 @@
-package com.example.aprendizajeactivo.aa_comunity;
+package com.example.aprendizajeactivo.aprendizajeactivo;
 
 import org.junit.Test;
 

@@ -1,18 +1,9 @@
-package com.example.aprendizajeactivo.aa_comunity;
+package com.example.aprendizajeactivo.aprendizajeactivo;
 
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import android.support.v7.app.AppCompatActivity;
 
 import FirebaseConexion.FirebaseConexion;
-import FirebaseConexion.Interfaz.ActionActivity;
-import FirebaseConexion.Usuario;
 
 public class Login extends AppCompatActivity {
 

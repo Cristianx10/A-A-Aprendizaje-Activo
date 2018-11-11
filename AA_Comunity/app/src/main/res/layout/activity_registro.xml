@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="match_parent"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/ll_registro_principal"
+    android:background="@drawable/background_1">
+
 
     <TextView
         android:layout_width="match_parent"
@@ -10,7 +14,7 @@
         android:text="@string/login_nombre"/>
 
     <EditText
-        android:id="@+id/btn_registro_name"
+        android:id="@+id/et_registro_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_nombre"/>
@@ -21,7 +25,7 @@
         android:text="@string/login_email"/>
 
     <EditText
-        android:id="@+id/btn_registro_email"
+        android:id="@+id/et_registro_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_hint_email"/>
@@ -32,6 +36,7 @@
         android:text="@string/login_contrasena"/>
 
     <EditText
+        android:id="@+id/et_registro_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_hint_contrasena"/>
@@ -41,14 +46,16 @@
         android:text="@string/login_confirmar_contrasena"/>
 
     <EditText
+        android:id="@+id/et_registro_password_confir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_hint_contrasena"/>
 
     <Button
+        android:id="@+id/btn_registro_registrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_radious"
-        android:text="@string/login_ingresar"/>
+        android:text="@string/login_resgistro"/>
 
 </LinearLayout>

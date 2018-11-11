@@ -1,9 +1,16 @@
 <resources>
-    <string name="app_name">AA_Comunity</string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="app_name">AprendizajeActivo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
 
     <!-- Strings related to login -->
     <string name="login_ingresar">Ingresar</string>
+    <string name="login_resgistro">Registrar</string>
     <string name="login_nombre">Nombre se usuario</string>
     <string name="login_contrasena">Contraseña</string>
     <string name="login_email">Correo Electronico</string>
@@ -11,6 +18,13 @@
     <string name="login_hint_ingresar">Ingresar</string>
     <string name="login_hint_contrasena">Contraseña</string>
     <string name="login_hint_email">Ingresa tu correo</string>
-
+    <string name="title_activity_principal_home">principal_home</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_menu_down">MenuDown</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>
