@@ -105,16 +105,29 @@ public class ActionActivity {
     }
 
     public static void translucidaStatus(Activity activity){
-       Window w = activity.getWindow();
-       w.setNavigationBarColor(Color.GRAY);
+        Window w = activity.getWindow();
+        w.setNavigationBarColor(Color.GRAY);
        /* w.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);*/
     }
+    public static void translucidaStatusInv(Activity activity){
+        Window w = activity.getWindow();
+        w.setNavigationBarColor(Color.TRANSPARENT);
+       /* w.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);*/
+    }
+
 
     public static void interfazTranslucida(Activity activity){
         translucidaBar(activity);
         translucidaStatus(activity);
     }
+
+    public static void interfazTranslucidaInv(Activity activity){
+        translucidaBar(activity);
+        translucidaStatusInv(activity);
+    }
+
 
 
     //Public void cargar interfaz---------------------------------------
@@ -122,7 +135,7 @@ public class ActionActivity {
 
     public static void cargarFuentes(){
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Muli-Italic.ttf")
+                .setDefaultFontPath("fonts/Muli-Bold.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );

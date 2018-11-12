@@ -10,4 +10,9 @@
     <color name="black_barNavagation">#BBBCBE</color>
 
     <color name="btn_style_1">#35A9F2</color>
+    <color name="btn_style_2">#00000000</color>
+    <color name="text_white">#ffffff</color>
+
+
+
 </resources>

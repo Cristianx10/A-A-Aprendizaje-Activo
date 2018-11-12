@@ -31,4 +31,10 @@
 
     <string name="title_activity_splash_screen">SplashScreen</string>
 
+
+    <!-- Intructivo-->
+    <string name="instructivo_empezar">Empieza ahora</string>
+    <string name="instructivo_ingresar">Ingresar</string>
+    <string name="instructivo_intro">Comunidad de Aprendizaje virtual que permite el intercambio de conocimientos entre profesores y estudiantes mejorando el rendimiento academico.</string>
+
 </resources>

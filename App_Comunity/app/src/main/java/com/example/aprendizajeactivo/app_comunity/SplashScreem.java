@@ -110,7 +110,7 @@ public class SplashScreem extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                ActionActivity.goToActivity(SplashScreem.this, HomePage.class, new Fade(Fade.OUT));
+                ActionActivity.goToActivity(SplashScreem.this, Instructivo.class, new Fade(Fade.OUT));
                 finish();
             }
         }, 2000);
