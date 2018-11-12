@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="black_effect">#BDBDBD</color>
+    <color name="black_barNavagation">#BBBCBE</color>
+
+    <color name="btn_style_1">#35A9F2</color>
 </resources>

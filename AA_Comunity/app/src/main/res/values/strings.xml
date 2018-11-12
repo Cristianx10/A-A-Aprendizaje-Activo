@@ -28,4 +28,8 @@
     <string name="title_foros">Foros</string>
     <string name="title_perfil">Perfil</string>
     <string name="title_calendar">Calendario</string>
+
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
