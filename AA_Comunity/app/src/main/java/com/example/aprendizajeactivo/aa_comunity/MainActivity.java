@@ -1,4 +1,4 @@
-package com.example.aprendizajeactivo.aprendizajeactivo;
+package com.example.aprendizajeactivo.aa_comunity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 

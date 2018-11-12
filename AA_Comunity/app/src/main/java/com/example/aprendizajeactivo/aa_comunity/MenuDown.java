@@ -1,4 +1,4 @@
-package com.example.aprendizajeactivo.aprendizajeactivo;
+package com.example.aprendizajeactivo.aa_comunity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,12 +20,19 @@ public class MenuDown extends AppCompatActivity {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_calendar:
+                    mTextMessage.setText(R.string.title_dashboard);
+                    return true;
+                case R.id.navigation_foros:
                     mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
+                case R.id.navigation_perfil:
+                    mTextMessage.setText(R.string.title_notifications);
+                    return true;
+
             }
             return false;
         }

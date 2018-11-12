@@ -1,4 +1,4 @@
-package com.example.aprendizajeactivo.aprendizajeactivo;
+package com.example.aprendizajeactivo.aa_comunity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
