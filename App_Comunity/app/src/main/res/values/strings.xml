@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">App_Comunity</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_dashboard">Calendario</string>
+    <string name="title_notifications">Notificaciones</string>
+
+    <!-- Strings related to login -->
+    <string name="login_ingresar">Ingresar</string>
+    <string name="login_resgistro">Registrar</string>
+    <string name="login_nombre">Nombre se usuario</string>
+    <string name="login_contrasena">Contraseña</string>
+    <string name="login_email">Correo Electronico</string>
+    <string name="login_confirmar_contrasena">Confirmar contraseña</string>
+    <string name="login_hint_ingresar">Ingresar</string>
+    <string name="login_hint_contrasena">Contraseña</string>
+    <string name="login_hint_email">Ingresa tu correo</string>
+    <string name="title_activity_principal_home">principal_home</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_menu_down">MenuDown</string>
+
+
+    <string name="title_foros">Foros</string>
+    <string name="title_perfil">Perfil</string>
+    <string name="title_calendar">Calendario</string>
+
+    <string name="title_activity_splash_screen">SplashScreen</string>
+
+</resources>

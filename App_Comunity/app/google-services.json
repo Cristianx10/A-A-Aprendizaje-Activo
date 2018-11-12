@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "886491791326",
+    "firebase_url": "https://aacomunity-8ac35.firebaseio.com",
+    "project_id": "aacomunity-8ac35",
+    "storage_bucket": "aacomunity-8ac35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886491791326:android:8ed4883f0fb4795b",
+        "android_client_info": {
+          "package_name": "com.example.aprendizajeactivo.app_comunity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886491791326-bj203h4o3b0eio7jl5jgje4r537m6ioi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aprendizajeactivo.app_comunity",
+            "certificate_hash": "796eb770b386bd8f113c5789f6d194b628916eaf"
+          }
+        },
+        {
+          "client_id": "886491791326-joic4kbphqpbjfrdc3i3c1c3d8bi7v29.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ2B5xKksRc6adNn0NpzqGyrRTYbtePw8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886491791326-joic4kbphqpbjfrdc3i3c1c3d8bi7v29.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
