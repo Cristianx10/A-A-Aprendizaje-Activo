@@ -37,12 +37,12 @@
                     android:padding="2dp"/>
 
                 <ImageButton
-                    android:layout_marginLeft="102dp"
+                    android:layout_marginLeft="112dp"
                    android:background="@drawable/add"
                     android:layout_width="30dp"
                     android:layout_height="30dp" />
 
-                
+
             </LinearLayout>
 
 
@@ -50,9 +50,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <CheckBox
-                    android:layout_width=""
-                    android:layout_height="" />
                 
             </CalendarView>
 
