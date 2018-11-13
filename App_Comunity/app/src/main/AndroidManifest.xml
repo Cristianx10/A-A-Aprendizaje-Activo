@@ -25,7 +25,11 @@
             android:name=".HomePage"
             android:label="@string/title_activity_home_page" />
         <activity android:name=".Login" />
-        <activity android:name=".Instructivo"></activity>
+        <activity android:name=".Instructivo" />
+        <activity
+            android:name=".Induccion"
+            android:label="@string/title_activity_induccion"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

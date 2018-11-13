@@ -160,4 +160,10 @@ public class ActionActivity {
             t.setTypeface(font);
         }
     }
+
+
+    public static int getPantalla(View view){
+        int i = view.getDisplay().getHeight();
+        return i;
+    }
 }
