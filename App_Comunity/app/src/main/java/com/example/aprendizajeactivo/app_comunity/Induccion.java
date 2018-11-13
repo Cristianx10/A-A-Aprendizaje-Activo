@@ -22,6 +22,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import Interfaz.ActionActivity;
+
 public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFragmentInteractionListener,
                                                             InduccionRol.OnFragmentInteractionListener,
                                                             InduccionLogin.OnFragmentInteractionListener,
@@ -71,6 +73,8 @@ public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFr
                         .setAction("Action", null).show();
             }
         });
+
+        ActionActivity.interfazTranslucida(this);
 
     }
 

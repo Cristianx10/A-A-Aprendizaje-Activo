@@ -28,7 +28,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 public class ActionActivity {
 
 
-    private static int DURATION_TRANSITION = 1000;
+    private static int DURATION_TRANSITION = 2000;
 
     public static void ocularClickTeclado(final Activity activity, View v){
         v.setOnClickListener(new View.OnClickListener() {

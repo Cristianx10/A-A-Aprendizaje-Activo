@@ -136,6 +136,16 @@ public class FirebaseConexion implements Firebase_value {
         public void errorTaskException(@NonNull Task<AuthResult> task);
     }
 
+    public static DatabaseReference getRama(String ruta, Object o){
+        String[] part = ruta.split(ruta, '/');
+        DatabaseReference ref = database.getReference();
+        for (int i = 0; i < part.length; i++){
+            ref.child(part[i]);
+        }
+        return ref;
+    }
+
+
 }
 
 

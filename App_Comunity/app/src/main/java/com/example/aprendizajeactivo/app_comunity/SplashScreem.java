@@ -5,10 +5,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.transition.Explode;
 import android.transition.Fade;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 
+import FirebaseConexion.FirebaseConexion;
 import Interfaz.ActionActivity;
 
 /**
@@ -110,12 +114,14 @@ public class SplashScreem extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                ActionActivity.goToActivity(SplashScreem.this, HomePage.class, new Fade(Fade.OUT));
+                ActionActivity.goToActivity(SplashScreem.this, Induccion.class, new Slide(Gravity.TOP));
                 finish();
             }
         }, 2000);
 
     }
+
+    FirebaseConexion fc;
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -125,6 +131,8 @@ public class SplashScreem extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100);
+        fc.getIntance();
+
     }
 
     private void toggle() {

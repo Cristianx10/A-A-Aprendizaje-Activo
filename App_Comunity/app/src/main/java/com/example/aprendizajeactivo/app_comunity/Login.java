@@ -1,10 +1,14 @@
 package com.example.aprendizajeactivo.app_comunity;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 
 import FirebaseConexion.FirebaseConexion;
 import Interfaz.ActionActivity;
@@ -41,6 +45,8 @@ public class Login extends AppCompatActivity {
         ActionActivity.ocularKeyTeclado(this, et_registro_password);
         ActionActivity.ocularKeyTeclado(this, et_registro_password_confir);
         ActionActivity.ocularClickTeclado(this, ll_registro_principal);
+
+
 
 
 
