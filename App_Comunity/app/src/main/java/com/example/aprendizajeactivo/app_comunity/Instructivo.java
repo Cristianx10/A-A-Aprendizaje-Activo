@@ -10,7 +10,7 @@ import android.os.Bundle;
 import Interfaz.ActionActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class Instructivo extends AppCompatActivity implements InstructivoRol.OnFragmentInteractionListener{
+public class Instructivo extends AppCompatActivity implements InstructivoRol.OnFragmentInteractionListener,HomeCalendar.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
