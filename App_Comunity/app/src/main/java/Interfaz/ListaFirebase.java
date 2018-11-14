@@ -78,3 +78,9 @@ interface settingList{
     void onStart();
     void onStop();
 }
+
+
+/*
+ implementation 'com.firebaseui:firebase-ui-database:4.2.1'
+
+ */
