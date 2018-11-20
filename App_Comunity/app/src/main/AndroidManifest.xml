@@ -27,7 +27,7 @@
         <activity android:name=".Login" />
         <activity android:name=".Instructivo" />
         <activity
-            android:name=".Induccion"
+            android:name="Induccion.Induccion"
             android:label="@string/title_activity_induccion"
             android:theme="@style/AppTheme"></activity>
     </application>

@@ -1,4 +1,4 @@
-package com.example.aprendizajeactivo.app_comunity;
+package Induccion;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,16 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.aprendizajeactivo.app_comunity.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link InduccionOpcion.OnFragmentInteractionListener} interface
+ * {@link InduccionRegister.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link InduccionOpcion#newInstance} factory method to
+ * Use the {@link InduccionRegister#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InduccionOpcion extends Fragment implements IOnBackPressed{
+public class InduccionRegister extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +31,7 @@ public class InduccionOpcion extends Fragment implements IOnBackPressed{
 
     private OnFragmentInteractionListener mListener;
 
-    public InduccionOpcion() {
+    public InduccionRegister() {
         // Required empty public constructor
     }
 
@@ -39,11 +41,11 @@ public class InduccionOpcion extends Fragment implements IOnBackPressed{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment InduccionOpcion.
+     * @return A new instance of fragment InduccionRegister.
      */
     // TODO: Rename and change types and number of parameters
-    public static InduccionOpcion newInstance(String param1, String param2) {
-        InduccionOpcion fragment = new InduccionOpcion();
+    public static InduccionRegister newInstance(String param1, String param2) {
+        InduccionRegister fragment = new InduccionRegister();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +66,7 @@ public class InduccionOpcion extends Fragment implements IOnBackPressed{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_induccion_opcion, container, false);
+        return inflater.inflate(R.layout.fragment_induccion_register, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -90,18 +92,6 @@ public class InduccionOpcion extends Fragment implements IOnBackPressed{
         super.onDetach();
         mListener = null;
     }
-
-    @Override
-    public boolean onBackPressed() {
-       /* if () {
-            //action not popBackStack
-            return true;
-        } else {
-
-        }*/
-        return false;
-    }
-
 
     /**
      * This interface must be implemented by activities that contain this

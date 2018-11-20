@@ -5,14 +5,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.transition.Explode;
-import android.transition.Fade;
 import android.transition.Slide;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 
 import FirebaseConexion.FirebaseConexion;
+import Induccion.Induccion;
 import Interfaz.ActionActivity;
 
 /**

@@ -1,11 +1,9 @@
-package com.example.aprendizajeactivo.app_comunity;
+package Induccion;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -22,13 +20,14 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-import java.util.List;
+import com.example.aprendizajeactivo.app_comunity.InduccionRol;
+import com.example.aprendizajeactivo.app_comunity.R;
 
 import FirebaseConexion.FragmentPagerAdapter;
 import Interfaz.ActionActivity;
 
 public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFragmentInteractionListener,
-                                                            InduccionRol.OnFragmentInteractionListener,
+        InduccionRol.OnFragmentInteractionListener,
                                                             InduccionLogin.OnFragmentInteractionListener,
                                                             InduccionRegister.OnFragmentInteractionListener
 {

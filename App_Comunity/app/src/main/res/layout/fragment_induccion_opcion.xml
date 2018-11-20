@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/btn_boton_state_1"
-    tools:context=".InduccionOpcion"
+    tools:context="Induccion.InduccionOpcion"
     android:id="@+id/frame_inducion_opcion">
 
     <!-- TODO: Update blank fragment layout -->
