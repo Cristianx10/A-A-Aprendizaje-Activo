@@ -7,4 +7,12 @@
     <dimen name="display_height_navegation">50dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+
+
+    
+    
+    <dimen name="app_margin_horizontal">15dp</dimen>
+    <dimen name="h1_titulo">25dp</dimen>
+    <dimen name="app_margin_verical">5dp</dimen>
+    <dimen name="activity_horizontal_margin_content">50dp</dimen>
 </resources>

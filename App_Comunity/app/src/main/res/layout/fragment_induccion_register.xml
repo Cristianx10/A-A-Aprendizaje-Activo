@@ -1,16 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/common_google_signin_btn_text_light_default"
-    tools:context="Induccion.InduccionRegister"
-    android:id="@+id/frame_inducion_register">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_inducion_registro">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/f_background_2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="18dp"
+                android:text="@string/induccion_register_bar"
+                android:textAlignment="center"
+                android:textColor="@color/text_white"
+                android:textSize="@dimen/h1_titulo"
+                android:textStyle="bold" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/ll_registro_principal" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/app_margin_horizontal"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="@dimen/app_margin_verical"
+                        android:background="@drawable/ic_add_fotos" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/activity_horizontal_margin_content"
+                    android:orientation="vertical">
+
+
+                    <EditText
+                        android:id="@+id/et_registro_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/app_margin_verical"
+                        android:hint="@string/login_nombre"
+                        android:inputType="textPersonName"/>
+
+
+                    <EditText
+                        android:id="@+id/et_registro_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/app_margin_verical"
+                        android:hint="@string/login_hint_email"
+                        android:inputType="textEmailAddress"/>
+
+                    <EditText
+                        android:id="@+id/et_registro_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/app_margin_verical"
+                        android:hint="@string/login_hint_contrasena"
+                        android:inputType="textPassword"/>
+
+
+                    <EditText
+                        android:id="@+id/et_registro_password_confir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/app_margin_verical"
+                        android:hint="@string/login_hint_contrasena"
+                        android:inputType="textPassword"/>
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/app_margin_verical"
+                        android:text="@string/checkbox_terminos" />
+
+                    <Button
+                        android:id="@+id/btn_registro_registrar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_boton_state_1"
+                        android:text="@string/login_resgistro" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 </FrameLayout>

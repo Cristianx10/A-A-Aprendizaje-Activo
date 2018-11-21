@@ -4,9 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.transition.Fade;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.aprendizajeactivo.app_comunity.IOnBackPressed;
 import com.example.aprendizajeactivo.app_comunity.R;
@@ -20,7 +25,9 @@ import com.example.aprendizajeactivo.app_comunity.R;
  * Use the {@link InduccionOpcion#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InduccionOpcion extends Fragment implements IOnBackPressed {
+public class InduccionOpcion extends Fragment implements IOnBackPressed, View.OnClickListener,
+        InduccionRegister.OnFragmentInteractionListener,
+        InduccionLogin.OnFragmentInteractionListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,6 +36,10 @@ public class InduccionOpcion extends Fragment implements IOnBackPressed {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private View vista;
+    private Fragment page_login;
+    private Fragment page_registro;
 
     private OnFragmentInteractionListener mListener;
 
@@ -61,13 +72,30 @@ public class InduccionOpcion extends Fragment implements IOnBackPressed {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_induccion_opcion, container, false);
+
+        page_login = new InduccionLogin();
+        page_registro = new InduccionRegister();
+
+        vista = inflater.inflate(R.layout.fragment_induccion_opcion, container, false);
+
+        Button btn_induccion_registrar = vista.findViewById(R.id.btn_induccion_registrar);
+        Button btn_Induccion_login = vista.findViewById(R.id.btn_induccion_login);
+
+        btn_induccion_registrar.setOnClickListener(this);
+        btn_Induccion_login.setOnClickListener(this);
+
+
+
+
+        return vista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -94,15 +122,42 @@ public class InduccionOpcion extends Fragment implements IOnBackPressed {
         mListener = null;
     }
 
+
+    @Override
+    public void onClick(View v) {
+        
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
+        fragmentTransaction.setCustomAnimations(
+                R.animator.enter_from_right,
+                R.animator.exit_to_left,
+                R.animator.enter_from_left,
+                R.animator.exit_to_right);
+
+
+        switch (v.getId()){
+            case R.id.btn_induccion_registrar:
+                fragmentTransaction.replace(R.id.frame_induccion, page_registro);
+                fragmentTransaction.addToBackStack("registro");
+                break;
+            case R.id.btn_induccion_login:
+               fragmentTransaction.replace(R.id.frame_induccion, page_login);
+                fragmentTransaction.addToBackStack(null);
+                break;
+
+        }
+
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
     @Override
     public boolean onBackPressed() {
-       /* if () {
-            //action not popBackStack
-            return true;
-        } else {
-
-        }*/
-        return false;
+        return true;
     }
 
 

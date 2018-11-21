@@ -9,7 +9,7 @@
     <string name="title_notifications">Notificaciones</string>
 
     <!-- Strings related to login -->
-    <string name="login_ingresar">Ingresar</string>
+    <string name="login_ingresar">Iniciar sesión</string>
     <string name="login_resgistro">Registrar</string>
     <string name="login_nombre">Nombre se usuario</string>
     <string name="login_contrasena">Contraseña</string>
@@ -46,5 +46,7 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="tab_text_4">Tab 4</string>
+    <string name="induccion_register_bar">Registro</string>
+    <string name="checkbox_terminos">Acepto terminos y condiciones</string>
 
 </resources>

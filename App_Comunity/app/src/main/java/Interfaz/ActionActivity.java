@@ -19,6 +19,7 @@ import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.aprendizajeactivo.app_comunity.R;
 
@@ -30,32 +31,42 @@ public class ActionActivity {
 
     private static int DURATION_TRANSITION = 2000;
 
-    public static void ocularClickTeclado(final Activity activity, View v){
+    public static void ocularClickTeclado(final Activity activity, View v) {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-                v.clearFocus();
                 inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                v.clearFocus();
             }
         });
     }
 
 
-    public static void ocularKeyTeclado(final Activity activity, View v){
+    public static void ocularKeyTeclado(final Activity activity, View v) {
+
+
         v.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(keyCode == KeyEvent.KEYCODE_ENTER) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-                    v.clearFocus();
                     inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
                 }
+                v.clearFocus();
+                activity.onBackPressed();
                 return true;
             }
-        });
-    }
 
+
+        });
+        v.clearFocus();
+
+
+
+
+    }
 
 
     //Ir a actividades-------------------
@@ -68,12 +79,12 @@ public class ActionActivity {
     public static void goToActivity(Activity activity, Class destino, goToActivit activit) {
         Intent intent = new Intent(activity, destino);
         activit.accionActivity(intent);
-        if(activit.irActividad()) {
+        if (activit.irActividad()) {
             activity.startActivity(intent);
         }
     }
 
-    public static void goToActivity(Activity activity, Class destino, Transition transition){
+    public static void goToActivity(Activity activity, Class destino, Transition transition) {
         transition.setDuration(DURATION_TRANSITION);
         transition.setInterpolator(new DecelerateInterpolator());
         activity.getWindow().setExitTransition(transition);
@@ -83,34 +94,36 @@ public class ActionActivity {
         activity.startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
     }
 
-    public static void transcionEnter(Activity activity, Transition transition){
+    public static void transcionEnter(Activity activity, Transition transition) {
         transition.setDuration(DURATION_TRANSITION);
         transition.setInterpolator(new DecelerateInterpolator());
         activity.getWindow().setAllowEnterTransitionOverlap(false);
         activity.getWindow().setEnterTransition(transition);
     }
 
-    public interface goToActivit{
+    public interface goToActivit {
         public void accionActivity(Intent intent);
+
         public boolean irActividad();
     }
 
 
     //Barras transparentes-----------------------
 
-    public static void translucidaBar(Activity activity){
+    public static void translucidaBar(Activity activity) {
         Window w = activity.getWindow();
-        w.getDecorView().setSystemUiVisibility( View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        w.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         w.setStatusBarColor(Color.TRANSPARENT);
     }
 
-    public static void translucidaStatus(Activity activity){
+    public static void translucidaStatus(Activity activity) {
         Window w = activity.getWindow();
         w.setNavigationBarColor(Color.GRAY);
-       /* w.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);*/
+        w.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
     }
-    public static void translucidaStatusInv(Activity activity){
+
+    public static void translucidaStatusInv(Activity activity) {
         Window w = activity.getWindow();
         w.setNavigationBarColor(Color.TRANSPARENT);
        /* w.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
@@ -118,22 +131,21 @@ public class ActionActivity {
     }
 
 
-    public static void interfazTranslucida(Activity activity){
+    public static void interfazTranslucida(Activity activity) {
         translucidaBar(activity);
         translucidaStatus(activity);
     }
 
-    public static void interfazTranslucidaInv(Activity activity){
+    public static void interfazTranslucidaInv(Activity activity) {
         translucidaBar(activity);
         translucidaStatusInv(activity);
     }
 
 
-
     //Public void cargar interfaz---------------------------------------
 
 
-    public static void cargarFuentes(){
+    public static void cargarFuentes() {
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/Muli-Bold.ttf")
                 .setFontAttrId(R.attr.fontPath)
@@ -141,7 +153,7 @@ public class ActionActivity {
         );
     }
 
-    public static void setFuente(Activity activity,View view, String fuente){
+    public static void setFuente(Activity activity, View view, String fuente) {
 
 // Seteamos en una Variable donde tenemos la fuente (podemos omitir este paso y ponerla directamente cuando cargamos la fuente)
         String carpetaFuente = "fonts/" + fuente;
@@ -152,17 +164,17 @@ public class ActionActivity {
         Typeface font = Typeface.createFromAsset(activity.getAssets(), carpetaFuente);
 
 // Aplicamos la fuente
-        if(view instanceof  TextView){
+        if (view instanceof TextView) {
             TextView t = (TextView) view;
             t.setTypeface(font);
-        }else if(view instanceof  EditText){
+        } else if (view instanceof EditText) {
             EditText t = (EditText) view;
             t.setTypeface(font);
         }
     }
 
 
-    public static int getPantalla(View view){
+    public static int getPantalla(View view) {
         int i = view.getDisplay().getHeight();
         return i;
     }
