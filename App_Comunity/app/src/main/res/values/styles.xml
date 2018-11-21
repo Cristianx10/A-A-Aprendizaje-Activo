@@ -1,11 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -14,6 +15,31 @@
         <item name="android:windowTranslucentNavigation">true</item>
 
 
+    </style>
+
+    <style name="ThemeActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background"> @null </item>
+        <!-- Support library compatibility -->
+        <item name="background">@null</item>
+        <item name="android:displayOptions"> showHome | useLogo</item>
+        <item name="displayOptions">showHome|useLogo</item>
+
+    </style>
+
+
+
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/azulCeleste</item>
+        <item name="colorPrimary">@color/blanco</item>
+    </style>
+
+    <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:weekNumberColor">@color/azulCeleste</item>
+    </style>
+
+    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/blanco</item>
     </style>
 
     <style name="FullscreenTheme" parent="AppTheme">

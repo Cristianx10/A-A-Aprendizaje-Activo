@@ -4,6 +4,12 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="blanco">#FFFFFF</color>
+
+    <color name="azulCeleste">#7CB2F4</color>
+
+    <color name="blackColor">#000000</color>
+
     <color name="black_overlay">#66000000</color>
 
     <color name="black_effect">#BDBDBD</color>
