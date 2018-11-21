@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
@@ -14,6 +15,22 @@
         <item name="android:windowTranslucentNavigation">true</item>
 
 
+    </style>
+
+
+
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/azulCeleste</item>
+        <item name="colorPrimary">@color/blanco</item>
+    </style>
+
+    <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:weekNumberColor">@color/azulCeleste</item>
+    </style>
+
+    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/blanco</item>
     </style>
 
     <style name="FullscreenTheme" parent="AppTheme">
