@@ -10,7 +10,7 @@ import android.os.Bundle;
 import Interfaz.ActionActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class Instructivo extends AppCompatActivity implements InstructivoRol.OnFragmentInteractionListener,HomeCalendar.OnFragmentInteractionListener{
+public class Instructivo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +19,7 @@ public class Instructivo extends AppCompatActivity implements InstructivoRol.OnF
 
         ActionActivity.interfazTranslucidaInv(this);
 
-        InstructivoRol instructivoRol = new InstructivoRol();
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.place_holder_instructivo, instructivoRol, null);
-        fragmentTransaction.commit();
 
     }
 
@@ -33,8 +28,5 @@ public class Instructivo extends AppCompatActivity implements InstructivoRol.OnF
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 }

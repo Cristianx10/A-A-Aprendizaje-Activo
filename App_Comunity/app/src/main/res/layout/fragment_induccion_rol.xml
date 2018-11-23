@@ -4,13 +4,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="Induccion.InduccionRol"
-    android:background="@drawable/background_index_1"
     android:id="@+id/frame_inducion_rol">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@drawable/background_index_2"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin_content"
+            android:text="Android"
+            android:textSize="55dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Yo soy:"
+                android:textColor="@color/text_white"
+                android:textAlignment="center"
+                android:textSize="@dimen/h1_titulo"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profesor"
+                android:drawableLeft="@mipmap/ic_profe"
+                android:drawablePadding="-40dp"
+                android:textColor="@color/text_white"
+                android:background="@drawable/btn_boton_state_1"
+                android:layout_marginVertical="@dimen/app_margin_verical"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_estu"
+                android:drawablePadding="-40dp"
+                android:text="Estudiante"
+                android:textColor="@color/text_white"
+                android:background="@drawable/btn_boton_state_1"
+                android:layout_marginVertical="@dimen/app_margin_verical"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
 
 </FrameLayout>

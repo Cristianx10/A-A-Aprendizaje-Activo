@@ -49,13 +49,8 @@ public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFr
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
-
         page_opcion = new InduccionOpcion();
-
-
         fragmentTransaction.add(R.id.frame_induccion, page_opcion).commit();
-
-
         ActionActivity.interfazTranslucida(this);
 
     }
