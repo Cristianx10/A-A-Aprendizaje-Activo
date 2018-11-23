@@ -42,11 +42,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/app_margin_verical"
+                    android:inputType="textPersonName"
                     android:hint="@string/login_nombre" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPassword"
                     android:layout_marginVertical="@dimen/app_margin_verical"
                     android:hint="@string/login_contrasena" />
 

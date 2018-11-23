@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.text.InputType;
 import android.transition.Fade;
 import android.transition.Slide;
 import android.transition.Transition;
@@ -25,6 +26,8 @@ import com.example.aprendizajeactivo.app_comunity.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
 
 public class ActionActivity {
 
@@ -32,36 +35,59 @@ public class ActionActivity {
     private static int DURATION_TRANSITION = 2000;
 
     public static void ocularClickTeclado(final Activity activity, View v) {
+      /*  v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                activity.onBackPressed();
+                v.clearFocus();
+            }
+        });*/
+
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                InputMethodManager imm =
+                        (InputMethodManager) activity.getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                 v.clearFocus();
             }
         });
+
+        InputMethodManager imm =
+                (InputMethodManager) activity.getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 
 
     public static void ocularKeyTeclado(final Activity activity, View v) {
 
-
+/*
         v.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
                     inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
-
+                    activity.onBackPressed();
+                    v.clearFocus();
                 }
-                v.clearFocus();
-                activity.onBackPressed();
+
+
+               // v.clearFocus();
+
+               // activity.onBackPressed();
                 return true;
             }
 
 
-        });
-        v.clearFocus();
+        });*/
+
+    /*    InputMethodManager imm =
+                (InputMethodManager) activity.getSystemService(INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+*/
 
 
 
