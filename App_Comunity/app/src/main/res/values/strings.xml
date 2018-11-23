@@ -48,5 +48,9 @@
     <string name="tab_text_4">Tab 4</string>
     <string name="induccion_register_bar">Registro</string>
     <string name="checkbox_terminos">Acepto terminos y condiciones</string>
+    <string name="title_activity_instructivo">Instructivo</string>
+    <string name="instructivo_bienvenida">A+A es una comunidad virtual que te permite aprender y enseñar donde tú quieras, cuando tú quieras.</string>
+    <string name="instructivo_organiza">Planea tus horarios, eventos importantes y actividades.</string>
+    <string name="instructivo_opina">En nuestros foros virtuales comparte tu opinión de distintos temas y entérate de lo que todos piensan.</string>
 
 </resources>

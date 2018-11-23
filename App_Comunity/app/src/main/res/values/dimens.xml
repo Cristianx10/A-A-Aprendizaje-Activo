@@ -9,8 +9,6 @@
     <dimen name="appbar_padding_top">8dp</dimen>
 
 
-    
-    
     <dimen name="app_margin_horizontal">15dp</dimen>
     <dimen name="h1_titulo">25dp</dimen>
     <dimen name="app_margin_verical">5dp</dimen>

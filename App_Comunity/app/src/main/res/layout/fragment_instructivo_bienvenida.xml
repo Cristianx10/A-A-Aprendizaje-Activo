@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InstructivoBienvenida">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:background="@drawable/background_instructivo_1"
+        android:backgroundTintMode="multiply"
+        android:backgroundTint="@color/black_effect"
+        android:layout_gravity="center"
+        android:gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/h1_titulo"
+                android:textColor="@color/text_white"
+                android:text="Bienvenida Camila"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/text_white"
+                android:text="@string/instructivo_bienvenida"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Continuar"
+                android:background="@drawable/btn_boton_state_1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"></LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

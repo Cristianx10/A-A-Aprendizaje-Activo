@@ -25,10 +25,13 @@
             android:name=".HomePage"
             android:label="@string/title_activity_home_page" />
         <activity android:name=".Login" />
-        <activity android:name=".Instructivo" />
         <activity
             android:name="Induccion.Induccion"
             android:label="@string/title_activity_induccion"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Instructivo"
+            android:label="@string/title_activity_instructivo"
             android:theme="@style/AppTheme"></activity>
     </application>
 

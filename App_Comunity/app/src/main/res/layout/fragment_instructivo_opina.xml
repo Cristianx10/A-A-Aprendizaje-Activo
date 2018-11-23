@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InstructivoOpina">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/background_instructivo_3"
+        android:backgroundTint="@color/black_effect"
+        android:backgroundTintMode="multiply"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Opina"
+                android:textAlignment="center"
+                android:textColor="@color/text_white"
+                android:textSize="@dimen/h1_titulo"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/instructivo_opina"
+                android:textAlignment="center"
+                android:textColor="@color/text_white" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_boton_state_1"
+                android:text="Continuar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"></LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>
