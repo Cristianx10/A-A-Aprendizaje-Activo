@@ -21,7 +21,7 @@ public class HomePage extends AppCompatActivity implements
         HomePrincipal.OnFragmentInteractionListener,
         HomeCalendar.OnFragmentInteractionListener,
         HomeForos.OnFragmentInteractionListener,
-        HomeGrupos.OnFragmentInteractionListener{
+        HomeGrupos.OnFragmentInteractionListener {
 
     private TextView mTextMessage;
 
@@ -30,12 +30,52 @@ public class HomePage extends AppCompatActivity implements
     private Fragment frame_calendario;
     private Fragment frame_foros;
 
-    private FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
 
     private BottomNavigationView bottomNavigationView;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener  = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+            fragmentTransaction.setCustomAnimations(
+                    R.animator.enter_from_right,
+                    R.animator.exit_to_left,
+                    R.animator.enter_from_left,
+                    R.animator.exit_to_right);
+
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    mTextMessage.setText(R.string.title_home);
+                    fragmentTransaction.replace(R.id.frama_home_page_principal, frame_inicio);
+
+                    break;
+                case R.id.navigation_group:
+                    mTextMessage.setText("Grupos");
+                    fragmentTransaction.replace(R.id.frama_home_page_principal, frame_grupos);
+
+                    break;
+                case R.id.navigation_foros:
+                    mTextMessage.setText("Calendario");
+                    fragmentTransaction.replace(R.id.frama_home_page_principal, frame_calendario);
+
+                    break;
+                case R.id.navigation_calendar:
+                    mTextMessage.setText("Foros");
+                    fragmentTransaction.replace(R.id.frama_home_page_principal, frame_foros);
+
+                    break;
+            }
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+
+            return true;
+
+
+        }
+    };
 
 
     @Override
@@ -49,57 +89,16 @@ public class HomePage extends AppCompatActivity implements
 
         ActionActivity.interfazTranslucida(this);
 
-        fragmentManager = getSupportFragmentManager();
-
-        fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         frame_inicio = new HomePrincipal();
         frame_grupos = new HomeGrupos();
         frame_calendario = new HomeCalendar();
         frame_foros = new HomeForos();
 
+
+
         fragmentTransaction.add(R.id.frama_home_page_principal, frame_inicio).commit();
-
-
-        mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                fragmentManager = getSupportFragmentManager();
-
-                fragmentTransaction = fragmentManager.beginTransaction();
-
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        mTextMessage.setText(R.string.title_home);
-                        fragmentTransaction.replace(R.id.frama_home_page_principal, frame_inicio);
-                        return true;
-                    case R.id.navigation_group:
-                        mTextMessage.setText("Grupos");
-                        fragmentTransaction.replace(R.id.frama_home_page_principal, frame_grupos);
-                        return true;
-                    case R.id.navigation_foros:
-                        mTextMessage.setText("Calendario");
-                        fragmentTransaction.replace(R.id.frama_home_page_principal, frame_calendario);
-                        return true;
-                    case R.id.navigation_calendar:
-                        mTextMessage.setText("Foros");
-                        fragmentTransaction.replace(R.id.frama_home_page_principal, frame_foros);
-                        return true;
-
-
-                }
-
-                fragmentTransaction.commit();
-                return true;
-
-
-            }
-        };
-
-
-
     }
 
     @Override

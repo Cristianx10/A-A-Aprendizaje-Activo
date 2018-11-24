@@ -3,21 +3,22 @@ package Induccion;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.aprendizajeactivo.app_comunity.R;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 
-import FirebaseConexion.FirebaseConexion;
-import Interfaz.ActionActivity;
+import FirebaseConexion.FirebaseAU;
+import ObjetosList.OUsuario;
 
 
 /**
@@ -38,9 +39,10 @@ public class InduccionRegister extends Fragment{
     private String mParam1;
     private String mParam2;
 
-    FirebaseConexion fc;
-
+    FirebaseAU au;
     private View viewPrincipal;
+
+    public String tipoUsuario="USUARIO";
 
     private EditText et_registro_name;
     private EditText et_registro_email;
@@ -80,6 +82,7 @@ public class InduccionRegister extends Fragment{
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            tipoUsuario = getArguments().getString("rol");
         }
 
 
@@ -93,7 +96,7 @@ public class InduccionRegister extends Fragment{
 
         viewPrincipal = inflater.inflate(R.layout.fragment_induccion_register, container, false);
 
-        fc.getIntance();
+        au.getIntance();
 
         ll_registro_principal = viewPrincipal.findViewById(R.id.ll_registro_principal);
         et_registro_name = viewPrincipal.findViewById(R.id.et_registro_name);
@@ -102,11 +105,19 @@ public class InduccionRegister extends Fragment{
         et_registro_password_confir = viewPrincipal.findViewById(R.id.et_registro_password_confir);
         btn_registro_registrar = viewPrincipal.findViewById(R.id.btn_registro_registrar);
 
-        ActionActivity.ocularKeyTeclado(getActivity(), et_registro_name);
-        ActionActivity.ocularKeyTeclado(getActivity(), et_registro_email);
-        ActionActivity.ocularKeyTeclado(getActivity(), et_registro_password);
-        ActionActivity.ocularKeyTeclado(getActivity(), et_registro_password_confir);
-        ActionActivity.ocularClickTeclado(getActivity(), ll_registro_principal);
+        au.loginWithEmailAndPassword(et_registro_email, et_registro_password, new FirebaseAU.DataUserValidation() {
+            @Override
+            public void actionIsSuccessful(@NonNull Task<AuthResult> task) {
+                String name = et_registro_name.getText().toString();
+                String email = et_registro_email.getText().toString();
+                OUsuario usuario = new OUsuario(name, email, au.getUserUid(), "Estudiante");
+            }
+
+            @Override
+            public void actionErrorException(@NonNull Task<AuthResult> task) {
+
+            }
+        });
 
 
 

@@ -20,15 +20,28 @@
             android:background="@drawable/f_background_2"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/message"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Inicio"
-                android:textAlignment="center"
-                android:textColor="@color/text_white"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Inicio"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/h1_titulo"
+                    android:textStyle="bold" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="5"
+                    android:src="@drawable/ic_settings"/>
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

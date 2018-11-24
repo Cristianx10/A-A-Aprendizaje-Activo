@@ -31,6 +31,7 @@
                 android:textSize="@dimen/h1_titulo"/>
 
             <Button
+                android:id="@+id/btn_induccion_rol_profe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Profesor"
@@ -41,6 +42,7 @@
                 android:layout_marginVertical="@dimen/app_margin_verical"/>
 
             <Button
+                android:id="@+id/btn_induccion_rol_estu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@mipmap/ic_estu"

@@ -4,11 +4,17 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.aprendizajeactivo.app_comunity.R;
+
+import FirebaseConexion.Firebase_value;
+import Interfaz.ActionActivity;
+import Interfaz.Comunicador;
 
 
 /**
@@ -19,7 +25,7 @@ import com.example.aprendizajeactivo.app_comunity.R;
  * Use the {@link InduccionRol#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InduccionRol extends Fragment {
+public class InduccionRol extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,6 +34,15 @@ public class InduccionRol extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+
+    private Comunicador comunicador;
+    private View vista;
+
+
+    private Button btn_induccion_rol_profe;
+    private Button btn_induccion_rol_estu;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,8 +80,22 @@ public class InduccionRol extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        vista = inflater.inflate(R.layout.fragment_induccion_rol, container, false);
+
+        btn_induccion_rol_profe = vista.findViewById(R.id.btn_induccion_rol_profe);
+        btn_induccion_rol_estu = vista.findViewById(R.id.btn_induccion_rol_estu);
+
+        comunicador = (Comunicador) getActivity();
+
+        btn_induccion_rol_profe.setOnClickListener(this);
+        btn_induccion_rol_estu.setOnClickListener(this);
+
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_induccion_rol, container, false);
+        return vista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -91,6 +120,28 @@ public class InduccionRol extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+
+
+        switch (v.getId()){
+
+            case R.id.btn_induccion_rol_profe:
+
+                comunicador.enviado("rol", Firebase_value.USUARIO_PROFESOR);
+
+                break;
+
+            case R.id.btn_induccion_rol_estu:
+
+
+                comunicador.enviado("rol", Firebase_value.USUARIO_ESTUDIANTE);
+                break;
+        }
+
     }
 
     /**

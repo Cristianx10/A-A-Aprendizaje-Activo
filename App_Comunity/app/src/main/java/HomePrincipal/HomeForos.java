@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 
 import com.example.aprendizajeactivo.app_comunity.R;
 
@@ -27,6 +28,9 @@ public class HomeForos extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private View vista;
+    private GridView gv_grupos_creados;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,8 +68,12 @@ public class HomeForos extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        vista = inflater.inflate(R.layout.fragment_home_foros, container, false);
+
+        gv_grupos_creados = vista.findViewById(R.id.gv_grupos_creados);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_foros, container, false);
+        return vista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

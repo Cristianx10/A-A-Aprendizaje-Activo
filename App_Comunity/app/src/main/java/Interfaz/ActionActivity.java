@@ -1,26 +1,18 @@
 package Interfaz;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.text.InputType;
-import android.transition.Fade;
-import android.transition.Slide;
 import android.transition.Transition;
-import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
-import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.aprendizajeactivo.app_comunity.R;
 
@@ -197,6 +189,18 @@ public class ActionActivity {
             EditText t = (EditText) view;
             t.setTypeface(font);
         }
+    }
+
+    public static android.app.FragmentTransaction inicilizarTrasicion(Activity activity){
+        android.app.FragmentTransaction fragmentTransaction = activity.getFragmentManager().beginTransaction();
+
+        fragmentTransaction.setCustomAnimations(
+                R.animator.enter_from_right,
+                R.animator.exit_to_left,
+                R.animator.enter_from_left,
+                R.animator.exit_to_right);
+
+        return fragmentTransaction;
     }
 
 

@@ -16,11 +16,12 @@ import com.example.aprendizajeactivo.app_comunity.R;
 
 import FirebaseConexion.FragmentPagerAdapter;
 import Interfaz.ActionActivity;
+import Interfaz.Comunicador;
 
 public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFragmentInteractionListener,
         InduccionRol.OnFragmentInteractionListener,
         InduccionLogin.OnFragmentInteractionListener,
-        InduccionRegister.OnFragmentInteractionListener{
+        InduccionRegister.OnFragmentInteractionListener, Comunicador {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -36,6 +37,7 @@ public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFr
      * The {@link ViewPager} that will host the section contents.
      */
     private Fragment page_opcion;
+    private Fragment page_registro;
 
 
     private FragmentManager fragmentManager;
@@ -50,6 +52,8 @@ public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFr
         fragmentTransaction = fragmentManager.beginTransaction();
 
         page_opcion = new InduccionOpcion();
+        page_registro = new InduccionRegister();
+
         fragmentTransaction.add(R.id.frame_induccion, page_opcion).commit();
         ActionActivity.interfazTranslucida(this);
 
@@ -62,5 +66,31 @@ public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFr
     }
 
 
+    @Override
+    public void enviado(String mensaje, Object objeto) {
+
+        String rol = objeto.toString();
+
+        Bundle args = new Bundle(); //* Bundle a recibir con datos.
+        args.putString("rol", rol);
+        page_registro.setArguments(args);
+
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+        fragmentTransaction.setCustomAnimations(
+                R.animator.enter_from_right,
+                R.animator.exit_to_left,
+                R.animator.enter_from_left,
+                R.animator.exit_to_right);
+        fragmentTransaction.replace(R.id.frame_induccion, page_registro, "registro");
+        fragmentTransaction.addToBackStack(null);
+
+        fragmentTransaction.commit();
+
+
+
+
+
+    }
 }
 

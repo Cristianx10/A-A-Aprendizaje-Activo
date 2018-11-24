@@ -39,7 +39,7 @@ public class InduccionOpcion extends Fragment implements IOnBackPressed, View.On
 
     private View vista;
     private Fragment page_login;
-    private Fragment page_registro;
+    private Fragment page_rol;
 
     private OnFragmentInteractionListener mListener;
 
@@ -82,7 +82,7 @@ public class InduccionOpcion extends Fragment implements IOnBackPressed, View.On
         // Inflate the layout for this fragment
 
         page_login = new InduccionLogin();
-        page_registro = new InduccionRegister();
+        page_rol = new InduccionRol();
 
         vista = inflater.inflate(R.layout.fragment_induccion_opcion, container, false);
 
@@ -137,8 +137,8 @@ public class InduccionOpcion extends Fragment implements IOnBackPressed, View.On
 
         switch (v.getId()){
             case R.id.btn_induccion_registrar:
-                fragmentTransaction.replace(R.id.frame_induccion, page_registro);
-                fragmentTransaction.addToBackStack("registro");
+                fragmentTransaction.replace(R.id.frame_induccion, page_rol);
+                fragmentTransaction.addToBackStack(null);
                 break;
             case R.id.btn_induccion_login:
                fragmentTransaction.replace(R.id.frame_induccion, page_login);

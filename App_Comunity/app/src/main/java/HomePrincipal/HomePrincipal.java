@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.aprendizajeactivo.app_comunity.R;
 
@@ -28,6 +29,9 @@ public class HomePrincipal extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private View vista;
+    private ListView lv_home_notificacion;
 
     private OnFragmentInteractionListener mListener;
 
@@ -66,7 +70,11 @@ public class HomePrincipal extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_principal, container, false);
+        vista =inflater.inflate(R.layout.fragment_home_principal, container, false);
+
+        lv_home_notificacion = vista.findViewById(R.id.lv_home_notificacion);
+
+        return vista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
