@@ -13,7 +13,7 @@ public class OUsuario {
     public OUsuario(String name, String email, String userUid, String rol) {
         this.name = name;
         this.email = email;
-        this.uid = uid;
+        this.uid = userUid;
         this.rol = rol;
     }
 }

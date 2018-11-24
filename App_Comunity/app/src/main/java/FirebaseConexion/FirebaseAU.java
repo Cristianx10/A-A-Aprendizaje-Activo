@@ -210,11 +210,11 @@ public class FirebaseAU {
         }
     }
 
-    public static void guardaObjeto(DatabaseReference ref, Object objeto){
+    public static void writeObjeto(DatabaseReference ref, Object objeto){
         ref.push().setValue(objeto);
     }
 
-    public static void guardaEnUidUsuario(DatabaseReference ref, Object objeto){
+    public static void writeEnUidUsuario(DatabaseReference ref, Object objeto){
         ref.child(auth.getCurrentUser().getUid()).setValue(objeto);
     }
 

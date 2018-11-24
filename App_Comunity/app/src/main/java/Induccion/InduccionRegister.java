@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
 import FirebaseConexion.FirebaseAU;
+import FirebaseConexion.Firebase_value;
 import ObjetosList.OUsuario;
 
 
@@ -105,19 +106,14 @@ public class InduccionRegister extends Fragment{
         et_registro_password_confir = viewPrincipal.findViewById(R.id.et_registro_password_confir);
         btn_registro_registrar = viewPrincipal.findViewById(R.id.btn_registro_registrar);
 
-        au.loginWithEmailAndPassword(et_registro_email, et_registro_password, new FirebaseAU.DataUserValidation() {
+        btn_registro_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void actionIsSuccessful(@NonNull Task<AuthResult> task) {
-                String name = et_registro_name.getText().toString();
-                String email = et_registro_email.getText().toString();
-                OUsuario usuario = new OUsuario(name, email, au.getUserUid(), "Estudiante");
-            }
-
-            @Override
-            public void actionErrorException(@NonNull Task<AuthResult> task) {
-
+            public void onClick(View v) {
+                registrar();
             }
         });
+
+
 
 
 
@@ -165,5 +161,22 @@ public class InduccionRegister extends Fragment{
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public void registrar(){
+        au.createWithEmailAndPassword(et_registro_email, et_registro_password, new FirebaseAU.DataUserValidation() {
+            @Override
+            public void actionIsSuccessful(@NonNull Task<AuthResult> task) {
+                String name = et_registro_name.getText().toString();
+                String email = et_registro_email.getText().toString();
+                OUsuario usuario = new OUsuario(name, email, au.getUserUid(), tipoUsuario);
+                au.writeEnUidUsuario(au.getReferencia().child(Firebase_value.USUARIOS), usuario);
+            }
+
+            @Override
+            public void actionErrorException(@NonNull Task<AuthResult> task) {
+
+            }
+        });
     }
 }
