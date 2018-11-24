@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.example.aprendizajeactivo.app_comunity.R;
 
+import java.util.ArrayList;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
@@ -201,6 +203,12 @@ public class ActionActivity {
                 R.animator.exit_to_right);
 
         return fragmentTransaction;
+    }
+
+    public static void limpiarCajas(ArrayList<EditText> editTexts){
+        for (EditText editText : editTexts){
+            editText.setText("");
+        }
     }
 
 

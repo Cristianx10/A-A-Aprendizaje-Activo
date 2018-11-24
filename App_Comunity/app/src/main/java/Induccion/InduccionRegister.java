@@ -17,8 +17,12 @@ import com.example.aprendizajeactivo.app_comunity.R;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import FirebaseConexion.FirebaseAU;
 import FirebaseConexion.Firebase_value;
+import Interfaz.ActionActivity;
 import ObjetosList.OUsuario;
 
 
@@ -175,8 +179,14 @@ public class InduccionRegister extends Fragment{
 
             @Override
             public void actionErrorException(@NonNull Task<AuthResult> task) {
-
+                ArrayList<EditText>editTexts = new ArrayList<>();
+                editTexts.add(et_registro_name);
+                editTexts.add(et_registro_email);
+                editTexts.add(et_registro_password_confir);
+                editTexts.add(et_registro_password);
+                ActionActivity.limpiarCajas(editTexts);
             }
+
         });
     }
 }
