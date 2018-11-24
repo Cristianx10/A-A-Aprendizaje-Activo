@@ -1,4 +1,4 @@
-package com.example.estudiante.xml;
+package com.example.aprendizajeactivo.app_comunity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,13 +17,13 @@ public class IndexPrincipal extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_inicio:
+                case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
                     return true;
-                case R.id.navigation_grupos:
+                case R.id.navigation_group:
                     mTextMessage.setText(R.string.title_dashboard);
                     return true;
-                case R.id.navigation_calendario:
+                case R.id.navigation_calendar:
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
                 case R.id.navigation_foros:
@@ -37,7 +37,7 @@ public class IndexPrincipal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_index_principal);
+        setContentView(R.layout.fragment_index_home);
 
         mTextMessage = (TextView) findViewById(R.id.navegation_principal);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

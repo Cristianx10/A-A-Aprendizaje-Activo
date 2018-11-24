@@ -36,7 +36,7 @@
             android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".IndexPrincipal"
-            android:label="@string/title_activity_index_principal"></activity>
+            android:label="@string/title_activity_home_page"></activity>
     </application>
 
 </manifest>

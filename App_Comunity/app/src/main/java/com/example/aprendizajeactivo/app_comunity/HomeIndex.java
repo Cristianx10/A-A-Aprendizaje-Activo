@@ -1,4 +1,4 @@
-package Induccion;
+package com.example.aprendizajeactivo.app_comunity;
 
 import android.content.Context;
 import android.net.Uri;
@@ -7,19 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.aprendizajeactivo.app_comunity.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link InduccionLogin.OnFragmentInteractionListener} interface
+ * {@link HomeIndex.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link InduccionLogin#newInstance} factory method to
+ * Use the {@link HomeIndex#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InduccionLogin extends Fragment {
+public class HomeIndex extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,11 +27,9 @@ public class InduccionLogin extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private View vista;
-
     private OnFragmentInteractionListener mListener;
 
-    public InduccionLogin() {
+    public HomeIndex() {
         // Required empty public constructor
     }
 
@@ -43,11 +39,11 @@ public class InduccionLogin extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment InduccionLogin.
+     * @return A new instance of fragment HomeIndex.
      */
     // TODO: Rename and change types and number of parameters
-    public static InduccionLogin newInstance(String param1, String param2) {
-        InduccionLogin fragment = new InduccionLogin();
+    public static HomeIndex newInstance(String param1, String param2) {
+        HomeIndex fragment = new HomeIndex();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,12 +63,8 @@ public class InduccionLogin extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        vista = inflater.inflate(R.layout.fragment_induccion_login, container, false);
-
-        Button
         // Inflate the layout for this fragment
-        return vista;
+        return inflater.inflate(R.layout.fragment_home_index, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

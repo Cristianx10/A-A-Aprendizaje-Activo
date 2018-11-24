@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -15,6 +18,16 @@ public class HomePage extends AppCompatActivity {
 
     private TextView mTextMessage;
 
+    private Fragment frame_inicio;
+    private Fragment frame_grupos;
+    private Fragment frame_calendario;
+    private Fragment frame_foros;
+
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+
+    private BottomNavigationView bottomNavigationView;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -24,18 +37,16 @@ public class HomePage extends AppCompatActivity {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
                     return true;
-                case R.id.navigation_calendar:
+                case R.id.navigation_group:
                     mTextMessage.setText("Calendario");
                     return true;
                 case R.id.navigation_foros:
                     mTextMessage.setText("Foros");
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_calendar:
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
-                case R.id.navigation_perfil:
-                    mTextMessage.setText("Perfil");
-                    return true;
+
 
             }
             return true;
@@ -52,6 +63,18 @@ public class HomePage extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         ActionActivity.interfazTranslucida(this);
+
+        fragmentManager = getSupportFragmentManager();
+
+        fragmentTransaction = fragmentManager.beginTransaction();
+
+        frame_inicio = new HomeIndex();
+        frame_grupos = new Grupos();
+        frame_calendario = new HomeCalendar();
+        frame_foros = new Foros();
+
+        fragmentTransaction.add(frame_inicio, null).commit();
+
     }
 
     @Override
