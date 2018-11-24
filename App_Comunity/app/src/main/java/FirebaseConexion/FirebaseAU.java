@@ -215,7 +215,7 @@ public class FirebaseAU {
     }
 
     public static void writeEnUidUsuario(DatabaseReference ref, Object objeto){
-        ref.child(auth.getCurrentUser().getUid()).setValue(objeto);
+        ref.child(auth.getCurrentUser().getUid()).child(Firebase_value.USUARIOS_PERFIL).setValue(objeto);
     }
 
     public static int getCount(DataSnapshot dataSnapshot){
