@@ -12,7 +12,7 @@
         <item name="windowNoTitle">true</item>
 
         <item name="android:windowContentTransitions">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+    <!--    <item name="android:windowTranslucentNavigation">true</item>-->
 
 
     </style>

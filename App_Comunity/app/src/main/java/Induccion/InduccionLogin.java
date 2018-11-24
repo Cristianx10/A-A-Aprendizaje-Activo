@@ -8,8 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.aprendizajeactivo.app_comunity.R;
+
+import HomePrincipal.HomePage;
+import Interfaz.ActionActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,7 +23,7 @@ import com.example.aprendizajeactivo.app_comunity.R;
  * Use the {@link InduccionLogin#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InduccionLogin extends Fragment {
+public class InduccionLogin extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,6 +32,11 @@ public class InduccionLogin extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private EditText et_induccion_name;
+    private EditText et_induccion_password;
+    private Button btn_induccion_login;
+
 
     private View vista;
 
@@ -70,7 +79,13 @@ public class InduccionLogin extends Fragment {
 
         vista = inflater.inflate(R.layout.fragment_induccion_login, container, false);
 
-        Button
+        et_induccion_name = vista.findViewById(R.id.btn_induccion_name);
+        et_induccion_password = vista.findViewById(R.id.btn_induccion_password);
+        btn_induccion_login = vista.findViewById(R.id.btn_induccion_login);
+
+
+        btn_induccion_login.setOnClickListener(this);
+
         // Inflate the layout for this fragment
         return vista;
     }
@@ -97,6 +112,17 @@ public class InduccionLogin extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_induccion_login:
+
+                ActionActivity.goToActivity(getActivity(), HomePage.class);
+
+                break;
+        }
     }
 
     /**

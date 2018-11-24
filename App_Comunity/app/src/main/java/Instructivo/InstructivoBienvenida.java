@@ -1,4 +1,4 @@
-package com.example.aprendizajeactivo.app_comunity;
+package Instructivo;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,16 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.aprendizajeactivo.app_comunity.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link InstructivoOrganiza.OnFragmentInteractionListener} interface
+ * {@link InstructivoBienvenida.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link InstructivoOrganiza#newInstance} factory method to
+ * Use the {@link InstructivoBienvenida#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InstructivoOrganiza extends Fragment {
+public class InstructivoBienvenida extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +31,7 @@ public class InstructivoOrganiza extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public InstructivoOrganiza() {
+    public InstructivoBienvenida() {
         // Required empty public constructor
     }
 
@@ -39,11 +41,11 @@ public class InstructivoOrganiza extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment InstructivoOrganiza.
+     * @return A new instance of fragment InstructivoBienvenida.
      */
     // TODO: Rename and change types and number of parameters
-    public static InstructivoOrganiza newInstance(String param1, String param2) {
-        InstructivoOrganiza fragment = new InstructivoOrganiza();
+    public static InstructivoBienvenida newInstance(String param1, String param2) {
+        InstructivoBienvenida fragment = new InstructivoBienvenida();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +66,7 @@ public class InstructivoOrganiza extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_instructivo_organiza, container, false);
+        return inflater.inflate(R.layout.fragment_instructivo_bienvenida, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -72,6 +74,27 @@ public class InstructivoOrganiza extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    int time;
+    boolean proceso = true;
+
+    public void time() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        if (proceso) {
+                            time++;
+                        }
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
     }
 
     @Override

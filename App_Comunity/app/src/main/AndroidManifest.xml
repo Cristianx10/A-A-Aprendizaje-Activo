@@ -23,20 +23,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomePage"
+            android:name="HomePrincipal.HomePage"
             android:label="@string/title_activity_home_page" />
-        <activity android:name=".Login" />
         <activity
             android:name="Induccion.Induccion"
             android:label="@string/title_activity_induccion"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Instructivo"
+            android:name="Instructivo.Instructivo"
             android:label="@string/title_activity_instructivo"
             android:theme="@style/AppTheme"></activity>
-        <activity
-            android:name=".IndexPrincipal"
-            android:label="@string/title_activity_home_page"></activity>
+
+
     </application>
 
 </manifest>

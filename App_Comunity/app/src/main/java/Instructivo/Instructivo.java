@@ -1,4 +1,4 @@
-package com.example.aprendizajeactivo.app_comunity;
+package Instructivo;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+
+import com.example.aprendizajeactivo.app_comunity.R;
 
 public class Instructivo extends AppCompatActivity {
 
