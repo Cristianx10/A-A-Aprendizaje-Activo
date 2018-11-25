@@ -1,11 +1,9 @@
-package FirebaseConexion;
+package ListFirebase;
 
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ListView;
 
-import com.firebase.ui.database.FirebaseListAdapter;
-import com.firebase.ui.database.FirebaseListOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
