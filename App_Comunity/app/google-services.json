@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "886491791326-tri9gskmt5rb6bpg84tdql5pa8sbnkn0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aprendizajeactivo.app_comunity",
+            "certificate_hash": "57ad841a1e8164ba2b7c2dd0c467d7e3db31d978"
+          }
+        },
+        {
           "client_id": "886491791326-joic4kbphqpbjfrdc3i3c1c3d8bi7v29.apps.googleusercontent.com",
           "client_type": 3
         }

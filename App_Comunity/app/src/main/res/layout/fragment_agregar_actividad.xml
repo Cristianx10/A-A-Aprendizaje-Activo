@@ -9,37 +9,134 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/grisFondo">
 
         <TextView
+            android:backgroundTint=""
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:background="@drawable/gradient_background"
+            android:gravity="center"
             android:padding="2dp"
             android:text="Agregar Actividad"
-            android:textStyle="bold"
-            android:gravity="center"
             android:textAlignment="center"
             android:textColor="#F0F0F0F0"
             android:textSize="10pt"
-            android:background="@drawable/gradient_background"/>
-        
+            android:textStyle="bold" />
+
         <EditText
+            android:background="@color/blanco"
             android:id="@+id/et_tituloActividad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Titulo"
-            android:textSize="10pt"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:textSize="10pt" />
 
         <EditText
+            android:background="@color/blanco"
             android:id="@+id/et_descripcionActividad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Descripción de la actividad"
-            android:textSize="10pt"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:textSize="10pt" />
+
+
+
+
+        <LinearLayout
+            android:background="@color/blanco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+
+
+            <EditText
+
+                android:id="@+id/et_fechaEsperada"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:hint="Fecha esperada"
+                android:padding="10dp"
+                android:textSize="10pt" />
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="45dp"
+                android:background="@drawable/icon_date"
+                android:padding="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/blanco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+            <EditText
+                android:id="@+id/et_fechaMaxima"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:hint="Fecha máxima"
+                android:padding="10dp"
+                android:textSize="10pt" />
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="45dp"
+                android:background="@drawable/icon_date"
+                android:padding="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/blanco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+
+
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:text="Fecha esperada"
+                android:padding="10dp"
+                android:textSize="10pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:textSize="10pt"
+                android:textColor="@color/grisIconos"
+                android:text="Si"/>
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/icon_next"
+                android:padding="10dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
+
+
 
 
 </FrameLayout>
