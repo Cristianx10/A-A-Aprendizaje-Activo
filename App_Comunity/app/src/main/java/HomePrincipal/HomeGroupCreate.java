@@ -3,32 +3,25 @@ package HomePrincipal;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.aprendizajeactivo.app_comunity.R;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
-
-import FirebaseConexion.FirebaseAU;
-import FirebaseConexion.Firebase_value;
-import ListFirebase.ListFirebase;
-import ObjetosList.Grupo;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomePrincipal.OnFragmentInteractionListener} interface
+ * {@link HomeGroupCreate.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomePrincipal#newInstance} factory method to
+ * Use the {@link HomeGroupCreate#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomePrincipal extends Fragment {
+public class HomeGroupCreate extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -38,15 +31,17 @@ public class HomePrincipal extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private View vista;
-    private ListView lv_home_notificacion;
-
-    private FirebaseAU au;
-    private ListFirebase<Grupo> listGroup;
-
     private OnFragmentInteractionListener mListener;
 
-    public HomePrincipal() {
+    private EditText et_create_group_title;
+    private EditText et_create_group_descripcion;
+    private Button btn_create_group_cargar_imagen;
+    private Button btn_create_group_cancelar;
+    private Button btn_create_group_finish;
+    private View vista;
+
+
+    public HomeGroupCreate() {
         // Required empty public constructor
     }
 
@@ -56,11 +51,11 @@ public class HomePrincipal extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomePrincipal.
+     * @return A new instance of fragment HomeGroupCreate.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomePrincipal newInstance(String param1, String param2) {
-        HomePrincipal fragment = new HomePrincipal();
+    public static HomeGroupCreate newInstance(String param1, String param2) {
+        HomeGroupCreate fragment = new HomeGroupCreate();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -80,42 +75,19 @@ public class HomePrincipal extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        vista = inflater.inflate(R.layout.fragment_home_group_create, container, false);
         // Inflate the layout for this fragment
-        vista =inflater.inflate(R.layout.fragment_home_principal, container, false);
 
-        lv_home_notificacion = vista.findViewById(R.id.lv_home_notificacion);
+        et_create_group_title = vista.findViewById(R.id.et_create_group_title);
+        et_create_group_descripcion = vista.findViewById(R.id.et_create_group_descripcion);
+        btn_create_group_cargar_imagen = vista.findViewById(R.id.btn_create_group_cargar_imagen);
+        btn_create_group_cancelar = vista.findViewById(R.id.btn_create_group_cancelar);
+        btn_create_group_finish = vista.findViewById(R.id.btn_create_group_finish);
 
-        au.getIntance();
-
-        final DatabaseReference ref = au.getReferencia().child(Firebase_value.GRUPOS).child(Firebase_value.GRUPOS_GRUPOS);
-        //  au.writeObjeto(ref, g);
-
-        listGroup = new ListFirebase<Grupo>(new ListFirebase.getVariables<Grupo>() {
-            @Override
-            public ListView getViewListas() {
-                return lv_home_notificacion;
-            }
-
-            @Override
-            public Query getUbicacionBase() {
-                return ref;
-            }
-
-            @Override
-            public Class getClaseModelo() {
-                return Grupo.class;
-            }
-
-            @Override
-            public int getLayoutList() {
-                return R.layout.renglon_grupos_icon;
-            }
-
-            @Override
-            public void populateView(@NonNull View v, @NonNull Grupo model, int position) {
-
-            }
-        });
+        btn_create_group_cargar_imagen.setOnClickListener(this);
+        btn_create_group_cancelar.setOnClickListener(this);
+        btn_create_group_finish.setOnClickListener(this);
 
         return vista;
     }
@@ -142,6 +114,21 @@ public class HomePrincipal extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_create_group_cargar_imagen:
+
+                break;
+            case R.id.btn_create_group_cancelar:
+
+                break;
+            case R.id.btn_create_group_finish:
+
+                break;
+        }
     }
 
     /**

@@ -19,7 +19,7 @@ import static ListFirebase.Preconditions.assertNull;
 /**
  * Options to configure a {@link FirebaseListAdapter}.
  *
- * @see FirebaseListOptions.Builder
+ * @see Builder
  */
 public final class FirebaseListOptions<T> {
 
@@ -79,7 +79,7 @@ public final class FirebaseListOptions<T> {
          * Do not call this method after calling {@code setQuery}.
          */
         @NonNull
-        public FirebaseListOptions.Builder<T> setSnapshotArray(@NonNull ObservableSnapshotArray<T> snapshots) {
+        public Builder<T> setSnapshotArray(@NonNull ObservableSnapshotArray<T> snapshots) {
             assertNull(mSnapshots, ERR_SNAPSHOTS_SET);
 
             mSnapshots = snapshots;
@@ -92,7 +92,7 @@ public final class FirebaseListOptions<T> {
          * Do not call this method after calling {@link #setSnapshotArray(ObservableSnapshotArray)}.
          */
         @NonNull
-        public FirebaseListOptions.Builder<T> setQuery(@NonNull Query query, @NonNull SnapshotParser<T> parser) {
+        public Builder<T> setQuery(@NonNull Query query, @NonNull SnapshotParser<T> parser) {
             assertNull(mSnapshots, ERR_SNAPSHOTS_SET);
 
             mSnapshots = new FirebaseArray<>(query, parser);
@@ -104,7 +104,7 @@ public final class FirebaseListOptions<T> {
          * converted. Do not call this method after calling {@link #setSnapshotArray(ObservableSnapshotArray)}.
          */
         @NonNull
-        public FirebaseListOptions.Builder<T> setQuery(@NonNull Query query, @NonNull Class<T> modelClass) {
+        public Builder<T> setQuery(@NonNull Query query, @NonNull Class<T> modelClass) {
             return setQuery(query, new ClassSnapshotParser<>(modelClass));
         }
 
@@ -115,7 +115,7 @@ public final class FirebaseListOptions<T> {
          * Do not call this method after calling {@link #setSnapshotArray(ObservableSnapshotArray)}.
          */
         @NonNull
-        public FirebaseListOptions.Builder<T> setIndexedQuery(@NonNull Query keyQuery,
+        public Builder<T> setIndexedQuery(@NonNull Query keyQuery,
                                                                                        @NonNull DatabaseReference dataRef,
                                                                                        @NonNull SnapshotParser<T> parser) {
             assertNull(mSnapshots, ERR_SNAPSHOTS_SET);
@@ -132,7 +132,7 @@ public final class FirebaseListOptions<T> {
          * Do not call this method after calling {@link #setSnapshotArray(ObservableSnapshotArray)}.
          */
         @NonNull
-        public FirebaseListOptions.Builder<T> setIndexedQuery(@NonNull Query keyQuery,
+        public Builder<T> setIndexedQuery(@NonNull Query keyQuery,
                                                                                        @NonNull DatabaseReference dataRef,
                                                                                        @NonNull Class<T> modelClass) {
             return setIndexedQuery(keyQuery, dataRef, new ClassSnapshotParser<>(modelClass));
@@ -142,7 +142,7 @@ public final class FirebaseListOptions<T> {
          * Set the resource ID for the item layout.
          */
         @NonNull
-        public FirebaseListOptions.Builder<T> setLayout(@LayoutRes int layout) {
+        public Builder<T> setLayout(@LayoutRes int layout) {
             mLayout = layout;
             return this;
         }
@@ -152,7 +152,7 @@ public final class FirebaseListOptions<T> {
          * lifecycle events.
          */
         @NonNull
-        public FirebaseListOptions.Builder<T> setLifecycleOwner(@Nullable LifecycleOwner owner) {
+        public Builder<T> setLifecycleOwner(@Nullable LifecycleOwner owner) {
             mOwner = owner;
             return this;
         }

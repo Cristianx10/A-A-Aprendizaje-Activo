@@ -63,7 +63,7 @@ public class HomePage extends AppCompatActivity implements
                     fragmentTransaction.replace(R.id.frama_home_page_principal, frame_calendario);
 
                     break;
-                    
+
                 case R.id.navigation_foros:
                     mTextMessage.setText("Calendario");
                     fragmentTransaction.replace(R.id.frama_home_page_principal, frame_foros);

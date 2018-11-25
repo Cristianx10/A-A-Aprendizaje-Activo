@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="100dp"
+    android:layout_height="120dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_renglon_grupo_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_image_load" />
+    <TextView
+        android:id="@+id/tv_renglon_grupo_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:textAlignment="center"
+        android:text="Nombre grupo"/>
+</LinearLayout>

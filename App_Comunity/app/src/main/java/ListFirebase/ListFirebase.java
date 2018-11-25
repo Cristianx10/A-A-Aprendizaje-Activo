@@ -2,6 +2,7 @@ package ListFirebase;
 
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -43,11 +44,14 @@ public class ListFirebase<T>{
 
     FirebaseDatabase database;
     ListView lista;
+    GridView listaB;
 
     //1. Crear adaptador
     FirebaseListAdapter adapter;
 
     DatabaseReference reference;
+
+    boolean inicializacion = false;
 
     public ListFirebase(final getVariables<T> variables){
         this.lista = variables.getViewListas();
@@ -71,6 +75,41 @@ public class ListFirebase<T>{
         };
 
         lista.setAdapter(adapter);
+
+        if(inicializacion == false){
+            adapter.startListening();
+            inicializacion = true;
+        }
+    }
+
+    public ListFirebase(final getVariablesGrid<T> variables){
+
+        this.listaB = variables.getViewListas();
+        Query ref = variables.getUbicacionBase();
+        reference = (DatabaseReference) ref;
+
+        FirebaseListOptions options = new FirebaseListOptions.Builder()
+                .setLayout(variables.getLayoutList())
+                .setQuery(ref, variables.getClaseModelo())
+                .build();
+
+
+
+        adapter = new FirebaseListAdapter<T>(options) {
+            @Override
+            protected void populateView(@NonNull View v, @NonNull T model, int position) {
+
+                variables.populateView(v, model, position);
+
+            }
+        };
+
+        listaB.setAdapter(adapter);
+
+        if(inicializacion == false){
+            adapter.startListening();
+            inicializacion = true;
+        }
     }
 
     public void agregarObjetoAList(Object o){
@@ -85,6 +124,18 @@ public class ListFirebase<T>{
 
     public interface getVariables<T>{
         public ListView getViewListas();
+        public Query getUbicacionBase();
+        public Class getClaseModelo();
+        public int getLayoutList();
+        public void populateView(@NonNull View v, @NonNull T model, int position);
+        /*
+        Debe implementar la interfaz settings o escribir los metodos manualmente
+         */
+    }
+
+
+    public interface getVariablesGrid<T>{
+        public GridView getViewListas();
         public Query getUbicacionBase();
         public Class getClaseModelo();
         public int getLayoutList();

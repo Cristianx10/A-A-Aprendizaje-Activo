@@ -7,4 +7,9 @@ public interface Firebase_value {
     static String USUARIO_PROFESOR= "Profesor";
     static String USUARIO_ESTUDIANTE= "Estudiante";
 
+
+    static String GRUPOS= "Grupos";
+    static String GRUPOS_GRUPOS= "Grupos";
+
+
 }
