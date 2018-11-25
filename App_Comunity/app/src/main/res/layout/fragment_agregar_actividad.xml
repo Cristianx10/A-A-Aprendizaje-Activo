@@ -62,7 +62,10 @@
                 android:layout_height="wrap_content"
                 android:hint="Fecha esperada"
                 android:padding="10dp"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"/>
 
             <ImageButton
                 android:layout_width="40dp"
@@ -88,7 +91,10 @@
                 android:layout_height="wrap_content"
                 android:hint="Fecha máxima"
                 android:padding="10dp"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"/>
 
             <ImageButton
                 android:layout_width="40dp"
@@ -130,6 +136,38 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/icon_next"
                 android:padding="10dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="255dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_create_group_cancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_boton_state_1"
+                android:text="Cancelar"
+                android:textColor="@color/text_white" />
+
+            <Button
+                android:id="@+id/btn_create_group_finish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_boton_state_1"
+                android:text="Finalizar"
+                android:textColor="@color/text_white" />
+
 
         </LinearLayout>
 

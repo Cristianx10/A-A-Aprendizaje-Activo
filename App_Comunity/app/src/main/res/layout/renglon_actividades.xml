@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_diaActividadRenglon"
+            android:gravity="end"
+            android:text="Sab"
+            android:padding="2dp"
+            android:textAlignment="center"
+            android:textSize="5pt"/>
+
+        <TextView
+            android:layout_marginTop="-13dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_fechaActividadRenglon"
+            android:text="17"
+            android:textSize="16pt"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_tituloActividadRenglon"
+            android:text="Entrega Taller 2"
+            android:textStyle="bold"
+            android:textSize="9pt"
+            android:maxLines="1"
+            android:padding="2dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_descripcionActividadRenglon"
+            android:text="Entrega Taller 2"
+            android:maxLines="1"
+            android:padding="2dp"/>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/icon_delete"
+        android:layout_marginLeft="3dp"/>
+
+
+
+</LinearLayout>
