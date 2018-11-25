@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ import java.util.List;
 
 import FirebaseConexion.FirebaseAU;
 import FirebaseConexion.Firebase_value;
+import Instructivo.Instructivo;
+import Instructivo.InstructivoBienvenida;
 import Interfaz.ActionActivity;
 import ObjetosList.OUsuario;
 
@@ -34,7 +37,7 @@ import ObjetosList.OUsuario;
  * Use the {@link InduccionRegister#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InduccionRegister extends Fragment{
+public class InduccionRegister extends Fragment implements InstructivoBienvenida.OnFragmentInteractionListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -58,6 +61,7 @@ public class InduccionRegister extends Fragment{
     private LinearLayout ll_registro_principal;
 
     private OnFragmentInteractionListener mListener;
+
 
     public InduccionRegister() {
         // Required empty public constructor
@@ -114,6 +118,7 @@ public class InduccionRegister extends Fragment{
             @Override
             public void onClick(View v) {
                 registrar();
+               ActionActivity.goToActivity(getActivity(), Instructivo.class);
             }
         });
 
@@ -150,6 +155,10 @@ public class InduccionRegister extends Fragment{
         mListener = null;
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 
 
     /**
@@ -175,6 +184,8 @@ public class InduccionRegister extends Fragment{
                 String email = et_registro_email.getText().toString();
                 OUsuario usuario = new OUsuario(name, email, au.getUserUid(), tipoUsuario);
                 au.writeEnUidUsuario(au.getReferencia().child(Firebase_value.USUARIOS), usuario);
+
+
             }
 
             @Override
@@ -189,4 +200,6 @@ public class InduccionRegister extends Fragment{
 
         });
     }
+
+
 }

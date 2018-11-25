@@ -7,8 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.aprendizajeactivo.app_comunity.R;
+
+import HomePrincipal.HomePage;
+import Interfaz.ActionActivity;
 
 
 /**
@@ -28,6 +32,9 @@ public class InstructivoOpina extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button btn_instructivo_continue;
+    private View view;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,8 +72,21 @@ public class InstructivoOpina extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        view = inflater.inflate(R.layout.fragment_instructivo_opina, container, false);
+
+        btn_instructivo_continue = view.findViewById(R.id.btn_instructivo_continue_3);
+
+        btn_instructivo_continue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActionActivity.goToActivity(getActivity(), HomePage.class);
+            }
+        });
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_instructivo_opina, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

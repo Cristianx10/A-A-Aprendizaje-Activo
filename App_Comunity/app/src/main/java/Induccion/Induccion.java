@@ -21,7 +21,7 @@ import Interfaz.Comunicador;
 public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFragmentInteractionListener,
         InduccionRol.OnFragmentInteractionListener,
         InduccionLogin.OnFragmentInteractionListener,
-        InduccionRegister.OnFragmentInteractionListener, Comunicador {
+        InduccionRegister.OnFragmentInteractionListener, Comunicador{
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -75,6 +75,12 @@ public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFr
         args.putString("rol", rol);
         page_registro.setArguments(args);
 
+        irAFrament();
+
+
+    }
+
+    public void irAFrament(){
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         fragmentTransaction.setCustomAnimations(
@@ -86,11 +92,6 @@ public class Induccion extends AppCompatActivity implements InduccionOpcion.OnFr
         fragmentTransaction.addToBackStack(null);
 
         fragmentTransaction.commit();
-
-
-
-
-
     }
 }
 

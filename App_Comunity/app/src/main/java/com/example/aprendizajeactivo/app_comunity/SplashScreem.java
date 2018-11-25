@@ -113,7 +113,7 @@ public class SplashScreem extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                ActionActivity.goToActivity(SplashScreem.this, Induccion.class, new Slide(Gravity.TOP));
+                ActionActivity.goToActivity(SplashScreem.this, Induccion.class);
                 finish();
             }
         }, 2000);

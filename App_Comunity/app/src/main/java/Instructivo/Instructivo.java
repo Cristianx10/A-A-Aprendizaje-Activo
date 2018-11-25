@@ -1,7 +1,9 @@
 package Instructivo;
 
+import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -20,7 +22,8 @@ import android.widget.TextView;
 
 import com.example.aprendizajeactivo.app_comunity.R;
 
-public class Instructivo extends AppCompatActivity {
+public class Instructivo extends AppCompatActivity implements InstructivoBienvenida.OnFragmentInteractionListener,
+InstructivoOrganiza.OnFragmentInteractionListener, InstructivoOpina.OnFragmentInteractionListener{
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -37,6 +40,9 @@ public class Instructivo extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+    private Fragment page_instructivo;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +52,11 @@ public class Instructivo extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPager) findViewById(R.id.pager_activity_instructivo);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        page_instructivo = new InstructivoBienvenida();
+        irAFrament(page_instructivo);
 
     }
 
@@ -72,6 +81,11 @@ public class Instructivo extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
     /**
@@ -129,5 +143,19 @@ public class Instructivo extends AppCompatActivity {
             // Show 3 total pages.
             return 3;
         }
+    }
+
+    public void irAFrament(Fragment page){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+        fragmentTransaction.setCustomAnimations(
+                R.animator.enter_from_right,
+                R.animator.exit_to_left,
+                R.animator.enter_from_left,
+                R.animator.exit_to_right);
+        fragmentTransaction.add(R.id.activity_instructivo, page,null);
+        fragmentTransaction.addToBackStack(null);
+
+        fragmentTransaction.commit();
     }
 }

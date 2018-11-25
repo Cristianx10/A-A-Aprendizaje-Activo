@@ -4,9 +4,11 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.aprendizajeactivo.app_comunity.R;
 
@@ -19,7 +21,7 @@ import com.example.aprendizajeactivo.app_comunity.R;
  * Use the {@link InstructivoBienvenida#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InstructivoBienvenida extends Fragment {
+public class InstructivoBienvenida extends Fragment implements InstructivoOrganiza.OnFragmentInteractionListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,6 +30,12 @@ public class InstructivoBienvenida extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button btn_instructivo_continue;
+    private View view;
+
+    private Fragment page_organiza;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,8 +73,22 @@ public class InstructivoBienvenida extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        view = inflater.inflate(R.layout.fragment_instructivo_bienvenida, container, false);
+
+        btn_instructivo_continue = view.findViewById(R.id.btn_instructivo_continue);
+
+        page_organiza = new InstructivoOrganiza();
+
+        btn_instructivo_continue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irAFrament(page_organiza);
+            }
+        });
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_instructivo_bienvenida, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -114,6 +136,11 @@ public class InstructivoBienvenida extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -127,5 +154,20 @@ public class InstructivoBienvenida extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public void irAFrament(Fragment page){
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
+        fragmentTransaction.setCustomAnimations(
+                R.animator.enter_from_right,
+                R.animator.exit_to_left,
+                R.animator.enter_from_left,
+                R.animator.exit_to_right);
+
+        fragmentTransaction.replace(R.id.activity_instructivo, page,null);
+        fragmentTransaction.addToBackStack(null);
+
+        fragmentTransaction.commit();
     }
 }
