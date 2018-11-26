@@ -149,7 +149,7 @@
 
 
             <Button
-                android:id="@+id/btn_create_group_cancelar"
+                android:id="@+id/btn_actividad_cancelar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
@@ -159,7 +159,7 @@
                 android:textColor="@color/text_white" />
 
             <Button
-                android:id="@+id/btn_create_group_finish"
+                android:id="@+id/btn_actividad_finish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"

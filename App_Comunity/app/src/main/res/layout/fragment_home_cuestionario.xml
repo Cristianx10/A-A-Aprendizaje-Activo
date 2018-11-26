@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fl_cuestionario">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+       >
+
+    <TextView
+        android:backgroundTint=""
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/gradient_background"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="Crear cuestionario"
+        android:textAlignment="center"
+        android:textColor="@color/blanco"
+        android:textSize="10pt"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:id="@+id/ib_img_cuestionario"
+        android:background="@drawable/icon_image"/>
+
+    <EditText
+
+        android:id="@+id/et_titulo_cuestionario"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:hint="Titulo"
+        android:padding="10dp"
+        android:textSize="10pt"
+        android:inputType="date"
+        android:focusable="false"
+        android:clickable="true"/>
+
+    <EditText
+
+        android:id="@+id/et_descripcion_cuestionario"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:hint="Descripción"
+        android:padding="10dp"
+        android:textSize="10pt"
+        android:inputType="date"
+        android:focusable="false"
+        android:clickable="true"/>
+
+    <TextView
+        android:background="@color/grisFondo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="      Preguntas"
+        android:padding="10dp"/>
+
+    <ListView
+        android:id="@+id/lv_preguntas_cuestionario"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+    </ListView>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btn_anadir_preguntas"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/btn_boton_state_1"
+        android:text="Añadir preguntas"
+        android:textColor="@color/text_white" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_cuestionario_cancelar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_boton_state_1"
+            android:text="Cancelar"
+            android:textColor="@color/text_white" />
+
+        <Button
+            android:id="@+id/btn_cuestionario_finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_boton_state_1"
+            android:text="Finalizar"
+            android:textColor="@color/text_white" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+</FrameLayout>
