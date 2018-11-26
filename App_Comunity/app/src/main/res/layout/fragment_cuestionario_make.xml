@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fl_cuestionario">
+    tools:context=".CuestionarioMake">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +13,6 @@
         >
 
         <TextView
-            android:backgroundTint=""
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/gradient_background"
@@ -81,16 +80,16 @@
 
 
 
-            <TextView
-                android:id="@+id/tv_pregunta_cuestionario"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textAlignment="center"
-                android:text="¿Quien escribió la Odisea?"
-                android:background="@color/grisFondo"
-                android:layout_marginTop="40dp"
-                android:textSize="10pt" />
+        <TextView
+            android:id="@+id/tv_pregunta_cuestionario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:text="¿Quien escribió la Odisea?"
+            android:background="@color/grisFondo"
+            android:layout_marginTop="40dp"
+            android:textSize="10pt" />
 
 
 
