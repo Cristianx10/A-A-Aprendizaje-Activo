@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Use the {@link HomeGrupos#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeGrupos extends Fragment{
+public class HomeGrupos extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -50,6 +51,8 @@ public class HomeGrupos extends Fragment{
     private GridView gridview_grupos;
 
     private ListFirebase<Grupo> listGroup;
+
+    private Fragment createGroup;
 
     public HomeGrupos() {
         // Required empty public constructor
@@ -91,6 +94,9 @@ public class HomeGrupos extends Fragment{
         vista = inflater.inflate(R.layout.fragment_home_grupos, container, false);
 
         gridview_grupos = vista.findViewById(R.id.lv_gridview_grupos);
+
+        HomePage index = (HomePage) getActivity();
+        index.iv_opciones_page_index.setOnClickListener(this);
 
        // Grupo g = new Grupo("Matematicas", "https://firebasestorage.googleapis.com/v0/b/aacomunity-8ac35.appspot.com/o/ic_matematica.png?alt=media&token=95f4894e-a263-47c5-a510-ca55fc524685");
 
@@ -137,6 +143,8 @@ public class HomeGrupos extends Fragment{
             }
         });
 
+        createGroup = new HomeGroupCreate();
+
         // Inflate the layout for this fragment
         return vista;
     }
@@ -165,6 +173,30 @@ public class HomeGrupos extends Fragment{
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_opciones_page_index:
+
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
+                fragmentTransaction.setCustomAnimations(
+                        R.animator.enter_from_right,
+                        R.animator.exit_to_left,
+                        R.animator.enter_from_left,
+                        R.animator.exit_to_right);
+
+                fragmentTransaction.replace(R.id.frama_home_page_principal, createGroup);
+                fragmentTransaction.addToBackStack(null);
+
+                fragmentTransaction.commit();
+
+
+                Toast.makeText(getActivity(), "Anadir grupo", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     /**

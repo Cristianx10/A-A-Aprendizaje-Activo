@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.aprendizajeactivo.app_comunity.R;
 
@@ -19,7 +20,7 @@ import com.example.aprendizajeactivo.app_comunity.R;
  * Use the {@link HomeCalendar#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeCalendar extends Fragment {
+public class HomeCalendar extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,6 +29,8 @@ public class HomeCalendar extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private View view;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,8 +68,15 @@ public class HomeCalendar extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        HomePage index = (HomePage) getActivity();
+        index.iv_opciones_page_index.setOnClickListener(this);
+
+        view = inflater.inflate(R.layout.fragment_home_calendar, container, false);
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_calendar, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -91,6 +101,17 @@ public class HomeCalendar extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_opciones_page_index:
+
+                Toast.makeText(getActivity(), "AgregarCalendario", Toast.LENGTH_SHORT).show();
+
+                break;
+        }
     }
 
     /**

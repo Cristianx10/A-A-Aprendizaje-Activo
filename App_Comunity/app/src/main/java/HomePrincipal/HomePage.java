@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.aprendizajeactivo.app_comunity.R;
@@ -21,7 +22,8 @@ public class HomePage extends AppCompatActivity implements
         HomePrincipal.OnFragmentInteractionListener,
         HomeCalendar.OnFragmentInteractionListener,
         HomeForos.OnFragmentInteractionListener,
-        HomeGrupos.OnFragmentInteractionListener {
+        HomeGrupos.OnFragmentInteractionListener,
+        HomeGroupCreate.OnFragmentInteractionListener{
 
     private TextView mTextMessage;
 
@@ -30,6 +32,7 @@ public class HomePage extends AppCompatActivity implements
     private Fragment frame_calendario;
     private Fragment frame_foros;
 
+    public ImageView iv_opciones_page_index;
 
     private BottomNavigationView bottomNavigationView;
 
@@ -59,13 +62,13 @@ public class HomePage extends AppCompatActivity implements
                     break;
 
                 case R.id.navigation_calendar:
-                    mTextMessage.setText("Foros");
+                    mTextMessage.setText("Calendario");
                     fragmentTransaction.replace(R.id.frama_home_page_principal, frame_calendario);
 
                     break;
 
                 case R.id.navigation_foros:
-                    mTextMessage.setText("Calendario");
+                    mTextMessage.setText("Foros");
                     fragmentTransaction.replace(R.id.frama_home_page_principal, frame_foros);
 
                     break;
@@ -89,6 +92,8 @@ public class HomePage extends AppCompatActivity implements
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        iv_opciones_page_index = findViewById(R.id.iv_opciones_page_index);
 
         ActionActivity.interfazTranslucida(this);
 
