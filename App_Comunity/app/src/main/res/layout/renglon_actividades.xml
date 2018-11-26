@@ -63,6 +63,7 @@
         android:id="@+id/btn_tarea_delete"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:id="@+id/ib_delete_actividad"
         android:background="@drawable/icon_delete"
         android:layout_marginLeft="3dp"/>
 
