@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fl_cuestionario">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+
+        <TextView
+            android:id="@+id/tv_pregunta_cuestionario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:text="¿Quien escribió la Odisea?"
+            android:background="@color/grisFondo"
+            android:layout_marginTop="40dp"
+            android:textSize="10pt" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Homero 50%"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textSize="9pt"/>
+
+            <RatingBar
+                android:layout_width="245dp"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:clickable="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aristoteles 20%"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textSize="9pt"/>
+
+            <RatingBar
+                android:layout_width="245dp"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:clickable="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maluma 20%"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textSize="9pt"/>
+
+            <RatingBar
+                android:layout_width="245dp"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:clickable="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Platon 10%"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textSize="9pt"/>
+
+            <RatingBar
+                android:layout_width="245dp"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:clickable="false"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/btn_anadir_preguntas"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/btn_boton_state_1"
+            android:text="finalizar"
+            android:textColor="@color/text_white" />
+
+    </LinearLayout>
+
+
+</FrameLayout>
+
