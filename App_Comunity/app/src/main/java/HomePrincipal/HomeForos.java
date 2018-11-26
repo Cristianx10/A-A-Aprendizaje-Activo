@@ -1,6 +1,7 @@
 package HomePrincipal;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.aprendizajeactivo.app_comunity.AgregarForoU;
+import com.example.aprendizajeactivo.app_comunity.ForoItem;
 import com.example.aprendizajeactivo.app_comunity.MainActivity;
 import com.example.aprendizajeactivo.app_comunity.R;
 import com.google.firebase.database.DataSnapshot;
@@ -126,7 +128,7 @@ public class HomeForos extends Fragment implements View.OnClickListener{
             }
 
             @Override
-            public void populateView(@NonNull View v, @NonNull OForo model, int position) {
+            public void populateView(@NonNull View v, @NonNull final OForo model, int position) {
 
                 ImageView iv_foto_foro = v.findViewById(R.id.iv_foto_foro);
                 TextView tv_titulo_foro = v.findViewById(R.id.tv_titulo_foro);
@@ -134,10 +136,10 @@ public class HomeForos extends Fragment implements View.OnClickListener{
                 TextView tv_num_respuestas_foro = v.findViewById(R.id.tv_num_respuestas_foro);
                 TextView tv_fecha_foro = v.findViewById(R.id.tv_fecha_foro);
 
-                String uid = foroListFirebase.getAdapter().getRef(position).getKey();
+                final String uid = foroListFirebase.getAdapter().getRef(position).getKey();
 
 
-                final DatabaseReference dato = au.getReferencia().child(Firebase_value.FORO).child(Firebase_value.FOROS).child(uid);
+                final DatabaseReference dato = au.getReferencia().child(Firebase_value.FORO).child(Firebase_value.FORO).child(uid);
 
                 au.readObjectRealTime(new FirebaseAU.DataObjectListener() {
                     @Override
@@ -157,6 +159,24 @@ public class HomeForos extends Fragment implements View.OnClickListener{
                 tv_autor_foro.setText(model.autor);
                 tv_num_respuestas_foro.setText(conta);
                 tv_fecha_foro.setText(model.fecha);
+
+
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(getActivity(), ForoItem.class);
+
+                        intent.putExtra("titulo", model.titulo);
+                        intent.putExtra("autor", model.autor);
+                        intent.putExtra("uid", uid);
+                        intent.putExtra("descrip", model.descripcion);
+
+                        startActivity(intent);
+
+
+                    }
+                });
 
 
             }

@@ -110,6 +110,7 @@
     </LinearLayout>
 
     <ListView
+        android:id="@+id/lv_foro_item"
         android:layout_width="match_parent"
         android:layout_height="380dp"
         >
