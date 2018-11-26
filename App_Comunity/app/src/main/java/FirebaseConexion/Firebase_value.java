@@ -11,5 +11,8 @@ public interface Firebase_value {
     static String GRUPOS= "Grupos";
     static String GRUPOS_GRUPOS= "Grupos";
 
+    static String FORO = "FORO";
+    static String PUNTUACION = "PUNTUACION";
+
 
 }

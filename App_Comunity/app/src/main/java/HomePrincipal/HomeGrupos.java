@@ -98,6 +98,7 @@ public class HomeGrupos extends Fragment implements View.OnClickListener{
         HomePage index = (HomePage) getActivity();
         index.iv_opciones_page_index.setOnClickListener(this);
 
+
        // Grupo g = new Grupo("Matematicas", "https://firebasestorage.googleapis.com/v0/b/aacomunity-8ac35.appspot.com/o/ic_matematica.png?alt=media&token=95f4894e-a263-47c5-a510-ca55fc524685");
 
         au.getIntance();

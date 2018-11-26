@@ -53,24 +53,25 @@ public class HomePage extends AppCompatActivity implements
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
                     fragmentTransaction.replace(R.id.frama_home_page_principal, frame_inicio);
+                    iv_opciones_page_index.setImageResource(R.drawable.ic_settings);
 
                     break;
                 case R.id.navigation_group:
                     mTextMessage.setText("Grupos");
                     fragmentTransaction.replace(R.id.frama_home_page_principal, frame_grupos);
-
+                    iv_opciones_page_index.setImageResource(R.drawable.add);
                     break;
 
                 case R.id.navigation_calendar:
                     mTextMessage.setText("Calendario");
                     fragmentTransaction.replace(R.id.frama_home_page_principal, frame_calendario);
-
+                    iv_opciones_page_index.setImageResource(R.drawable.add);
                     break;
 
                 case R.id.navigation_foros:
                     mTextMessage.setText("Foros");
                     fragmentTransaction.replace(R.id.frama_home_page_principal, frame_foros);
-
+                    iv_opciones_page_index.setImageResource(R.drawable.add);
                     break;
 
             }
