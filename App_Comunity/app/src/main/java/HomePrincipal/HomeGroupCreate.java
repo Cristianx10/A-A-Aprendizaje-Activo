@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.aprendizajeactivo.app_comunity.R;
+import com.google.firebase.database.DatabaseReference;
+
+import FirebaseConexion.FirebaseAU;
+import FirebaseConexion.Firebase_value;
+import ObjetosList.Grupo;
 
 
 /**
@@ -21,7 +27,7 @@ import com.example.aprendizajeactivo.app_comunity.R;
  * Use the {@link HomeGroupCreate#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeGroupCreate extends Fragment implements View.OnClickListener{
+public class HomeGroupCreate extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,6 +45,8 @@ public class HomeGroupCreate extends Fragment implements View.OnClickListener{
     private Button btn_create_group_cancelar;
     private Button btn_create_group_finish;
     private View vista;
+
+    FirebaseAU au;
 
 
     public HomeGroupCreate() {
@@ -75,7 +83,7 @@ public class HomeGroupCreate extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        au.getIntance();
         vista = inflater.inflate(R.layout.fragment_home_group_create, container, false);
         // Inflate the layout for this fragment
 
@@ -118,14 +126,26 @@ public class HomeGroupCreate extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_create_group_cargar_imagen:
 
                 break;
             case R.id.btn_create_group_cancelar:
+                getFragmentManager().popBackStack();
 
                 break;
             case R.id.btn_create_group_finish:
+
+
+                String name = et_create_group_title.getText().toString();
+                String descripcion = et_create_group_descripcion.getText().toString();
+
+                Grupo grupo = new Grupo(name, descripcion);
+
+
+                DatabaseReference reference = au.getReferencia().child(Firebase_value.GRUPOS).child(Firebase_value.GRUPOS_GRUPOS);
+
+                au.writeObjeto(reference, grupo);
 
                 break;
         }

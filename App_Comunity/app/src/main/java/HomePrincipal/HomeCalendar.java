@@ -3,13 +3,23 @@ package HomePrincipal;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aprendizajeactivo.app_comunity.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+
+import FirebaseConexion.FirebaseAU;
+import FirebaseConexion.Firebase_value;
+import ListFirebase.ListFirebase;
+import ObjetosList.OTarea;
 
 
 /**
@@ -31,6 +41,13 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
     private String mParam2;
 
     private View view;
+
+    private FirebaseAU au;
+
+    private ListView lv_calendarActividades;
+
+    private ListFirebase<OTarea> listFirebase;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -73,7 +90,49 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
 
         view = inflater.inflate(R.layout.fragment_home_calendar, container, false);
 
+        lv_calendarActividades = view.findViewById(R.id.lv_calendarActividades);
 
+        final DatabaseReference reference = au.getReferencia().child(Firebase_value.USUARIOS).child(Firebase_value.TARAEA);
+
+        listFirebase = new ListFirebase<OTarea>(new ListFirebase.getVariables<OTarea>() {
+            @Override
+            public ListView getViewListas() {
+                return lv_calendarActividades;
+            }
+
+            @Override
+            public Query getUbicacionBase() {
+                return reference;
+            }
+
+            @Override
+            public Class getClaseModelo() {
+                return OTarea.class;
+            }
+
+            @Override
+            public int getLayoutList() {
+                return R.layout.renglon_actividades;
+            }
+
+            @Override
+            public void populateView(@NonNull View v, @NonNull OTarea model, int position) {
+
+
+                TextView tv_diaActividadRenglon = v.findViewById(R.id.tv_diaActividadRenglon);
+                TextView tv_fechaActividadRenglon = v.findViewById(R.id.tv_fechaActividadRenglon);
+                TextView tv_tituloActividadRenglon = v.findViewById(R.id.tv_tituloActividadRenglon);
+                TextView tv_descripcionActividadRenglon = v.findViewById(R.id.tv_descripcionActividadRenglon);
+
+                tv_diaActividadRenglon.setText(model.dia);
+                tv_fechaActividadRenglon.setText(model.fecha);
+                tv_tituloActividadRenglon.setText(model.name);
+                tv_descripcionActividadRenglon.setText(model.description);
+
+
+
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;

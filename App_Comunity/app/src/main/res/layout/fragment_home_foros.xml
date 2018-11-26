@@ -3,40 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="HomePrincipal.HomeForos"
-    android:background="@drawable/btn_boton_state_1">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/gradient_background"
-            android:gravity="center"
-            >
-
-            <TextView
-                android:layout_width="360dp"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:padding="2dp"
-                android:text="Foros"
-                android:textAlignment="center"
-                android:textColor="#F0F0F0F0"
-                android:textSize="10pt"
-                android:textStyle="bold" />
-
-            <ImageButton
-                android:id="@+id/ib_add_foro"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/add" />
-
-        </LinearLayout>
 
         <ListView
             android:id="@+id/lv_lista_foros"
