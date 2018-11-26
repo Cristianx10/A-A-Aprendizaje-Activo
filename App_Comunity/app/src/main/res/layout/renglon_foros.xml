@@ -6,17 +6,69 @@
     android:padding="5dp">
 
     <ImageView
+        android:id="@+id/iv_foto_foro"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/icon_image"
         />
 
     <LinearLayout
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:textColor="@color/blackColor"
+            android:id="@+id/tv_titulo_foro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="9pt"
+        android:text="Que piensas de la religión?"
+            android:maxLines="2"/>
+
+        <TextView
+            android:id="@+id/tv_autor_foro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="7pt"
+            android:text="Andres Quintero"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/tv_num_respuestas_foro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="7pt"
+            android:padding="2dp"
+            android:textColor="@color/azulLetras"
+            android:text="20 Respuestas"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        
+        android:gravity="center"
         >
+
+        <TextView
+            android:id="@+id/tv_fecha_foro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="5pt"
+            android:text="3 Nov 2018"
+            android:padding="1dp"
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/icon_comentario" />
+
 
 
     </LinearLayout>
