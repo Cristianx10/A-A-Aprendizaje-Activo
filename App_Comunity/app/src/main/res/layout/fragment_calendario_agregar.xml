@@ -55,10 +55,10 @@
 
             <EditText
 
-                android:id="@+id/et_fechaEsperada"
-                android:layout_width="320dp"
+                android:id="@+id/et_fecha_entrega"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
-                android:hint="Fecha esperada"
+                android:hint="Fecha de entrega"
                 android:padding="10dp"
                 android:textSize="10pt"
                 android:inputType="date"
@@ -69,80 +69,21 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="45dp"
+                android:layout_marginLeft="20dp"
                 android:background="@drawable/icon_date"
                 android:padding="10dp" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:background="@color/blanco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
 
-
-            <EditText
-                android:id="@+id/et_fechaMaxima"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:hint="Fecha máxima"
-                android:padding="10dp"
-                android:textSize="10pt"
-                android:inputType="date"
-                android:focusable="false"
-                android:clickable="true"/>
-
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="45dp"
-                android:background="@drawable/icon_date"
-                android:padding="10dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:background="@color/blanco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-
-
-            <TextView
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:text="Fecha esperada"
-                android:padding="10dp"
-                android:textSize="10pt" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:textSize="10pt"
-                android:textColor="@color/grisIconos"
-                android:text="Si"/>
-
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/icon_next"
-                android:padding="10dp" />
-
-        </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_marginTop="255dp"
+            android:layout_marginTop="380dp"
             android:orientation="horizontal">
 
 
