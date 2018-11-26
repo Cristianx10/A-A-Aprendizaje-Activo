@@ -26,8 +26,8 @@
 
         <ImageButton
             android:layout_marginTop="10dp"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:id="@+id/ib_img_cuestionario"
             android:background="@drawable/icon_image"/>
 
@@ -49,17 +49,13 @@
             android:orientation="horizontal">
 
 
-            <ImageButton
-                android:id="@+id/ib_add_pregunta"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/icon_add_gris" />
 
-            <TextView
+
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Toca para añadir pregunta"
+                android:hint="Titulo de la pregunta"
                 android:textSize="8pt" />
 
         </LinearLayout>
@@ -71,17 +67,19 @@
             android:padding="10dp"
             android:layout_marginTop="20dp">
 
-            <Button
+            <EditText
+                android:id="@+id/et_respuesta1_cuestionario"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
-                android:text="Respuesta 1"/>
+                android:hint="Respuesta 1"/>
 
-            <Button
+            <EditText
+                android:id="@+id/et_respuesta2_cuestionario"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
-                android:text="Respuesta 2"/>
+                android:hint="Respuesta 2"/>
 
         </LinearLayout>
 
@@ -92,17 +90,62 @@
             android:padding="10dp"
             android:layout_marginTop="-20dp">
 
-            <Button
+            <EditText
+                android:id="@+id/et_respuesta3_cuestionario"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
-                android:text="Respuesta 3"/>
+                android:hint="Respuesta 3"/>
 
-            <Button
+            <EditText
+                android:id="@+id/et_respuesta4_cuestionario"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
-                android:text="Respuesta 4"/>
+                android:hint="Respuesta 4"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="8pt"
+                android:text="Respuesta correcta:"/>
+
+            <CheckBox
+                android:id="@+id/cb_respuesta1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"/>
+
+            <CheckBox
+                android:id="@+id/cb_respuesta2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"/>
+
+            <CheckBox
+                android:id="@+id/cb_respuesta3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"/>
+
+            <CheckBox
+                android:id="@+id/cb_respuesta4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"/>
+
+
 
         </LinearLayout>
 
