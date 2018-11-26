@@ -14,6 +14,8 @@
 
     <color name="grisFondo">#ECEDEE</color>
 
+      <color name="azulLetras">#3EAEF4</color>
+
     <color name="black_overlay">#66000000</color>
 
     <color name="black_effect">#BDBDBD</color>
