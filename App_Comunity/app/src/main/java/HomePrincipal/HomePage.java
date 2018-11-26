@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.aprendizajeactivo.app_comunity.CalendarioAgregar;
 import com.example.aprendizajeactivo.app_comunity.R;
 
 import Interfaz.ActionActivity;
@@ -20,10 +21,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class HomePage extends AppCompatActivity implements
         HomePrincipal.OnFragmentInteractionListener,
-        HomeCalendar.OnFragmentInteractionListener,
+        HomeCalendario.OnFragmentInteractionListener,
         HomeForos.OnFragmentInteractionListener,
         HomeGrupos.OnFragmentInteractionListener,
-        HomeGroupCreate.OnFragmentInteractionListener{
+        HomeGroupCreate.OnFragmentInteractionListener,
+        CalendarioAgregar.OnFragmentInteractionListener {
 
     private TextView mTextMessage;
 
@@ -102,7 +104,7 @@ public class HomePage extends AppCompatActivity implements
 
         frame_inicio = new HomePrincipal();
         frame_grupos = new HomeGrupos();
-        frame_calendario = new HomeCalendar();
+        frame_calendario = new HomeCalendario();
         frame_foros = new HomeForos();
 
 

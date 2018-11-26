@@ -46,6 +46,7 @@ public class CalendarioAgregar extends Fragment implements View.OnClickListener{
 
     private View vista;
 
+
     private OnFragmentInteractionListener mListener;
 
     public CalendarioAgregar() {
@@ -89,8 +90,7 @@ public class CalendarioAgregar extends Fragment implements View.OnClickListener{
 
         et_tituloActividad = vista.findViewById(R.id.et_tituloActividad);
         et_descripcionActividad = vista.findViewById(R.id.et_descripcionActividad);
-        et_fechaEsperada = vista.findViewById(R.id.et_fechaEsperada);
-        et_fechaMaxima = vista.findViewById(R.id.et_fechaMaxima);
+        et_fechaEsperada = vista.findViewById(R.id.et_fecha_entrega);
         btn_actividad_cancelar = vista.findViewById(R.id.btn_actividad_cancelar);
         btn_actividad_finish = vista.findViewById(R.id.btn_actividad_finish);
 
@@ -139,8 +139,9 @@ public class CalendarioAgregar extends Fragment implements View.OnClickListener{
                 String fechaEspera = et_fechaEsperada.getText().toString();
                 String fechaMax = et_fechaMaxima.getText().toString();
 
-                OTarea tarea = new OTarea(name, descripcion, fechaEspera, fechaMax);
+                OTarea tarea = new OTarea(name, descripcion, "Martes", fechaEspera);
 
+                au.writeObjeto(reference, tarea);
 
 
                 break;
