@@ -1,37 +1,31 @@
-package HomePrincipal;
+package com.example.aprendizajeactivo.app_comunity;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.EditText;
 
-import com.example.aprendizajeactivo.app_comunity.R;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
 
 import FirebaseConexion.FirebaseAU;
 import FirebaseConexion.Firebase_value;
-import ListFirebase.ListFirebase;
 import ObjetosList.OTarea;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeCalendar.OnFragmentInteractionListener} interface
+ * {@link CalendarioAgregar.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeCalendar#newInstance} factory method to
+ * Use the {@link CalendarioAgregar#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeCalendar extends Fragment implements View.OnClickListener{
+public class CalendarioAgregar extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,18 +35,20 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
     private String mParam1;
     private String mParam2;
 
-    private View view;
+    FirebaseAU au;
 
-    private FirebaseAU au;
+    private EditText et_tituloActividad;
+    private EditText et_descripcionActividad;
+    private EditText et_fechaEsperada;
+    private EditText et_fechaMaxima;
+    private Button btn_actividad_cancelar;
+    private Button btn_actividad_finish;
 
-    private ListView lv_calendarActividades;
-
-    private ListFirebase<OTarea> listFirebase;
-
+    private View vista;
 
     private OnFragmentInteractionListener mListener;
 
-    public HomeCalendar() {
+    public CalendarioAgregar() {
         // Required empty public constructor
     }
 
@@ -62,11 +58,11 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeCalendar.
+     * @return A new instance of fragment CalendarioAgregar.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeCalendar newInstance(String param1, String param2) {
-        HomeCalendar fragment = new HomeCalendar();
+    public static CalendarioAgregar newInstance(String param1, String param2) {
+        CalendarioAgregar fragment = new CalendarioAgregar();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -86,65 +82,21 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        HomePage index = (HomePage) getActivity();
-        index.iv_opciones_page_index.setOnClickListener(this);
 
-        view = inflater.inflate(R.layout.fragment_home_calendar, container, false);
+        au.getIntance();
 
-        lv_calendarActividades = view.findViewById(R.id.lv_calendarActividades);
+        vista = inflater.inflate(R.layout.fragment_calendario_agregar, container, false);
 
-        final DatabaseReference reference = au.getReferencia().child(Firebase_value.USUARIOS).child(au.getUserUid()).child(Firebase_value.TARAEA);
+        et_tituloActividad = vista.findViewById(R.id.et_tituloActividad);
+        et_descripcionActividad = vista.findViewById(R.id.et_descripcionActividad);
+        et_fechaEsperada = vista.findViewById(R.id.et_fechaEsperada);
+        et_fechaMaxima = vista.findViewById(R.id.et_fechaMaxima);
+        btn_actividad_cancelar = vista.findViewById(R.id.btn_actividad_cancelar);
+        btn_actividad_finish = vista.findViewById(R.id.btn_actividad_finish);
 
-        listFirebase = new ListFirebase<OTarea>(new ListFirebase.getVariables<OTarea>() {
-            @Override
-            public ListView getViewListas() {
-                return lv_calendarActividades;
-            }
-
-            @Override
-            public Query getUbicacionBase() {
-                return reference;
-            }
-
-            @Override
-            public Class getClaseModelo() {
-                return OTarea.class;
-            }
-
-            @Override
-            public int getLayoutList() {
-                return R.layout.renglon_actividades;
-            }
-
-            @Override
-            public void populateView(@NonNull View v, @NonNull OTarea model, final int position) {
-
-
-                TextView tv_diaActividadRenglon = v.findViewById(R.id.tv_diaActividadRenglon);
-                TextView tv_fechaActividadRenglon = v.findViewById(R.id.tv_fechaActividadRenglon);
-                TextView tv_tituloActividadRenglon = v.findViewById(R.id.tv_tituloActividadRenglon);
-                TextView tv_descripcionActividadRenglon = v.findViewById(R.id.tv_descripcionActividadRenglon);
-                ImageButton btn_tarea_delete = v.findViewById(R.id.btn_tarea_delete);
-
-                tv_diaActividadRenglon.setText(model.dia);
-                tv_fechaActividadRenglon.setText(model.fecha);
-                tv_tituloActividadRenglon.setText(model.name);
-                tv_descripcionActividadRenglon.setText(model.description);
-
-                btn_tarea_delete.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        listFirebase.getAdapter().getRef(position).removeValue();
-                    }
-                });
-
-
-
-            }
-        });
 
         // Inflate the layout for this fragment
-        return view;
+        return vista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -174,9 +126,22 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.iv_opciones_page_index:
+            case R.id.btn_actividad_cancelar:
 
-                Toast.makeText(getActivity(), "AgregarCalendario", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.btn_actividad_finish:
+
+                DatabaseReference reference = au.getReferencia().child(Firebase_value.USUARIOS).child(au.getUserUid()).child(Firebase_value.TARAEA);
+
+                String name = et_tituloActividad.getText().toString();
+                String descripcion = et_descripcionActividad.getText().toString();
+                String fechaEspera = et_fechaEsperada.getText().toString();
+                String fechaMax = et_fechaMaxima.getText().toString();
+
+                OTarea tarea = new OTarea(name, descripcion, fechaEspera, fechaMax);
+
+
 
                 break;
         }
