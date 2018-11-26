@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -20,10 +19,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class HomePage extends AppCompatActivity implements
         HomePrincipal.OnFragmentInteractionListener,
-        HomeCalendar.OnFragmentInteractionListener,
+        HomeCalendario.OnFragmentInteractionListener,
         HomeForos.OnFragmentInteractionListener,
         HomeGrupos.OnFragmentInteractionListener,
-        HomeGroupCreate.OnFragmentInteractionListener{
+        HomeGroupCreate.OnFragmentInteractionListener
+        {
 
     private TextView mTextMessage;
 
@@ -102,7 +102,7 @@ public class HomePage extends AppCompatActivity implements
 
         frame_inicio = new HomePrincipal();
         frame_grupos = new HomeGrupos();
-        frame_calendario = new HomeCalendar();
+        frame_calendario = new HomeCalendario();
         frame_foros = new HomeForos();
 
 

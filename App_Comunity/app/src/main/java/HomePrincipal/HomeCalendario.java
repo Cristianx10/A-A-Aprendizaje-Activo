@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,19 +20,19 @@ import com.google.firebase.database.Query;
 
 import FirebaseConexion.FirebaseAU;
 import FirebaseConexion.Firebase_value;
+import Interfaz.ActionActivity;
 import ListFirebase.ListFirebase;
 import ObjetosList.OTarea;
-
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeCalendar.OnFragmentInteractionListener} interface
+ * {@link HomeCalendario.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeCalendar#newInstance} factory method to
+ * Use the {@link HomeCalendario#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeCalendar extends Fragment implements View.OnClickListener{
+public class HomeCalendario extends Fragment  implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,7 +42,8 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
     private String mParam1;
     private String mParam2;
 
-    private View view;
+    private View vista;
+
 
     private FirebaseAU au;
 
@@ -49,10 +51,9 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
 
     private ListFirebase<OTarea> listFirebase;
 
-
     private OnFragmentInteractionListener mListener;
 
-    public HomeCalendar() {
+    public HomeCalendario() {
         // Required empty public constructor
     }
 
@@ -62,11 +63,11 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeCalendar.
+     * @return A new instance of fragment HomeCalendario.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeCalendar newInstance(String param1, String param2) {
-        HomeCalendar fragment = new HomeCalendar();
+    public static HomeCalendario newInstance(String param1, String param2) {
+        HomeCalendario fragment = new HomeCalendario();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -86,12 +87,16 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        au.getIntance();
         HomePage index = (HomePage) getActivity();
         index.iv_opciones_page_index.setOnClickListener(this);
 
-        view = inflater.inflate(R.layout.fragment_home_calendar, container, false);
 
-        lv_calendarActividades = view.findViewById(R.id.lv_calendarActividades);
+        // Inflate the layout for this fragment
+        vista = inflater.inflate(R.layout.fragment_home_calendario, container, false);
+
+        lv_calendarActividades = vista.findViewById(R.id.lv_calendarActividades);
 
         final DatabaseReference reference = au.getReferencia().child(Firebase_value.USUARIOS).child(au.getUserUid()).child(Firebase_value.TARAEA);
 
@@ -124,14 +129,14 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
                 TextView tv_fechaActividadRenglon = v.findViewById(R.id.tv_fechaActividadRenglon);
                 TextView tv_tituloActividadRenglon = v.findViewById(R.id.tv_tituloActividadRenglon);
                 TextView tv_descripcionActividadRenglon = v.findViewById(R.id.tv_descripcionActividadRenglon);
-                ImageButton btn_tarea_delete = v.findViewById(R.id.btn_tarea_delete);
+                ImageButton ib_delete_actividad = v.findViewById(R.id.ib_delete_actividad);
 
                 tv_diaActividadRenglon.setText(model.dia);
                 tv_fechaActividadRenglon.setText(model.fecha);
                 tv_tituloActividadRenglon.setText(model.name);
                 tv_descripcionActividadRenglon.setText(model.description);
 
-                btn_tarea_delete.setOnClickListener(new View.OnClickListener() {
+                ib_delete_actividad.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         listFirebase.getAdapter().getRef(position).removeValue();
@@ -144,7 +149,7 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
         });
 
         // Inflate the layout for this fragment
-        return view;
+        return vista;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -171,17 +176,6 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
         mListener = null;
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.iv_opciones_page_index:
-
-                Toast.makeText(getActivity(), "AgregarCalendario", Toast.LENGTH_SHORT).show();
-
-                break;
-        }
-    }
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -195,5 +189,17 @@ public class HomeCalendar extends Fragment implements View.OnClickListener{
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_opciones_page_index:
+                ActionActivity.goToActivity(getActivity(), AgregarCalendar.class);
+
+                Toast.makeText(getActivity(), "AgregarCalendario", Toast.LENGTH_SHORT).show();
+
+                break;
+        }
     }
 }

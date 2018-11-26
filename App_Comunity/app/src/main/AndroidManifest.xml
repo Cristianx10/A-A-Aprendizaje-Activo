@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.aprendizajeactivo.app_comunity">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MainActivity"
@@ -13,8 +13,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:windowSoftInputMode="stateHidden"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="stateHidden">
         <activity
             android:name=".SplashScreem"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -36,9 +36,8 @@
         <activity
             android:name="Instructivo.Instructivo"
             android:label="@string/title_activity_instructivo"
-            android:theme="@style/AppTheme"></activity>
-
-
+            android:theme="@style/AppTheme" />
+        <activity android:name="HomePrincipal.AgregarCalendar"></activity>
     </application>
 
 </manifest>
