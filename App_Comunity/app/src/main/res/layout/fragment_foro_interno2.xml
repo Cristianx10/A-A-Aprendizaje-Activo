@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ForoInterno">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:background="@drawable/gradient_background"
+            android:gravity="center_horizontal"
+            >
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="-95dp"
+            >
+
+            <ImageView
+
+                android:layout_marginLeft="20dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/icon_image"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="@color/blanco"
+                    android:id="@+id/tv_titulo_foro_interno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="9pt"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="4dp"
+                    android:text="Que piensas de la religión?"
+                    android:maxLines="2"/>
+
+                <TextView
+                    android:textColor="@color/grisFondo"
+                    android:id="@+id/tv_autor_foro_interno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="6pt"
+                    android:layout_marginLeft="4dp"
+                    android:text="Andres Quintero"
+                    android:maxLines="2"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_descripcion_foro_interno"
+                android:padding="3dp"
+                android:layout_marginLeft="20dp"
+                android:text="Conjunto de creencias religiosas, de normas de comportamiento y de ceremonias de oración o sacrificio que son propias de un determinado grupo humano y con las que el hombre reconoce una relación con la divinidad (un dios o varios dioses)."/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                >
+
+                <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/ib_menu_foro"
+                    android:background="@drawable/icon_menu"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/tv_num_likes_foro"
+                    android:text="5"/>
+
+                <CheckBox
+                    android:layout_marginTop="-8dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/cb_like_foro"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            >
+
+        </ListView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/gradient_background"
+            >
+
+            <EditText
+                android:id="@+id/et_comentario_foro"
+                android:layout_marginLeft="10dp"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/border_radious_white"/>
+
+            <ImageButton
+                android:id="@+id/btn_enviar_comentario_foro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_send_azul"
+                android:layout_marginLeft="8dp"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

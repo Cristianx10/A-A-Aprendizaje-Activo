@@ -131,8 +131,8 @@ public class HomeCalendario extends Fragment  implements View.OnClickListener{
                 TextView tv_descripcionActividadRenglon = v.findViewById(R.id.tv_descripcionActividadRenglon);
                 ImageButton ib_delete_actividad = v.findViewById(R.id.ib_delete_actividad);
 
-                tv_diaActividadRenglon.setText(model.dia);
-                tv_fechaActividadRenglon.setText(model.fecha);
+                tv_diaActividadRenglon.setText(model.fecha);
+                tv_fechaActividadRenglon.setText(model.dia);
                 tv_tituloActividadRenglon.setText(model.name);
                 tv_descripcionActividadRenglon.setText(model.description);
 

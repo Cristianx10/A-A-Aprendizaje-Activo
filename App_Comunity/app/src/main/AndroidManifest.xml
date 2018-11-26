@@ -37,7 +37,9 @@
             android:name="Instructivo.Instructivo"
             android:label="@string/title_activity_instructivo"
             android:theme="@style/AppTheme" />
-        <activity android:name="HomePrincipal.AgregarCalendar"></activity>
+        <activity android:name="HomePrincipal.AgregarCalendar" />
+        <activity android:name=".AgregarForoU" />
+        <activity android:name=".ForoItem"></activity>
     </application>
 
 </manifest>
