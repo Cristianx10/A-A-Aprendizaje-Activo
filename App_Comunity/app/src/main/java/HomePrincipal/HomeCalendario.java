@@ -14,13 +14,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.aprendizajeactivo.app_comunity.CalendarioAgregar;
 import com.example.aprendizajeactivo.app_comunity.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
 import FirebaseConexion.FirebaseAU;
 import FirebaseConexion.Firebase_value;
+import Interfaz.ActionActivity;
 import ListFirebase.ListFirebase;
 import ObjetosList.OTarea;
 
@@ -44,7 +44,6 @@ public class HomeCalendario extends Fragment  implements View.OnClickListener{
 
     private View vista;
 
-    private Fragment page;
 
     private FirebaseAU au;
 
@@ -93,7 +92,7 @@ public class HomeCalendario extends Fragment  implements View.OnClickListener{
         HomePage index = (HomePage) getActivity();
         index.iv_opciones_page_index.setOnClickListener(this);
 
-        page = new CalendarioAgregar();
+
         // Inflate the layout for this fragment
         vista = inflater.inflate(R.layout.fragment_home_calendario, container, false);
 
@@ -196,18 +195,7 @@ public class HomeCalendario extends Fragment  implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_opciones_page_index:
-
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-
-                fragmentTransaction.setCustomAnimations(
-                        R.animator.enter_from_right,
-                        R.animator.exit_to_left,
-                        R.animator.enter_from_left,
-                        R.animator.exit_to_right);
-                fragmentTransaction.replace(R.id.frama_home_page_principal, page,null);
-                fragmentTransaction.addToBackStack(null);
-
-                fragmentTransaction.commit();
+                ActionActivity.goToActivity(getActivity(), AgregarCalendar.class);
 
                 Toast.makeText(getActivity(), "AgregarCalendario", Toast.LENGTH_SHORT).show();
 

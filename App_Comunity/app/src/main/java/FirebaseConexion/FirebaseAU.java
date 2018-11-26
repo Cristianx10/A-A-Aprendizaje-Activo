@@ -43,7 +43,7 @@ public class FirebaseAU {
 
     public static String getUserUid(){
         //return auth.getCurrentUser().getUid();
-        return "32432423112341";
+        return "3243242311dsd2341";
     }
 
     public static DatabaseReference getReferencia(){
