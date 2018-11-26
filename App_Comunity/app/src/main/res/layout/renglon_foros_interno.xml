@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_imagen_comentario_foros_interno"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/icon_image"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:id="@+id/tv_nombre_comentario_foros"
+                android:textSize="8pt"
+                android:text="Andres Quintero"
+                android:textColor="@color/blackColor"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_descripcion_foro_interno"
+            android:padding="3dp"
+            android:layout_marginLeft="10dp"
+            android:text="A mi modo de ver, las religiones no sirven para tener fe y no perder la esperanza, ni para aliviar la muerte de los seres queridos"
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/ib_menu_foro"
+                android:background="@drawable/icon_menu"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/tv_num_likes_comentarios_foro_interno"
+                android:text="5"/>
+
+            <CheckBox
+                android:layout_marginTop="-8dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/cb_like_foro_comentario_interno"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
