@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/iv_imagen_comentario_foros_interno"
-            android:layout_marginLeft="10dp"
-            android:padding="10dp"
-            android:layout_width="60dp"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
             android:layout_height="60dp"
-            android:background="@drawable/icon_image"/>
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/icon_image"
+            android:padding="10dp" />
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_nombre_comentario_foros"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:textStyle="bold"
-                android:id="@+id/tv_nombre_comentario_foros"
-                android:textSize="8pt"
                 android:text="Andres Quintero"
-                android:textColor="@color/blackColor"/>
+                android:textColor="@color/blackColor"
+                android:textSize="8pt"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_descripcion_foro_interno"
-            android:padding="3dp"
-            android:layout_marginLeft="10dp"
-            android:text="A mi modo de ver, las religiones no sirven para tener fe y no perder la esperanza, ni para aliviar la muerte de los seres queridos"
-            />
+            <TextView
+                android:id="@+id/tv_descripcion_foro_interno"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:padding="3dp"
+                android:text="A mi modo de ver, las religiones no sirven para tener fe y no perder la esperanza, ni para aliviar la muerte de los seres queridos" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:gravity="center_horizontal"
-            >
+            android:orientation="vertical">
 
             <ImageButton
+                android:id="@+id/ib_menu_foro"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/ib_menu_foro"
-                android:background="@drawable/icon_menu"
-                />
+                android:background="@drawable/icon_menu" />
 
             <TextView
+                android:id="@+id/tv_num_likes_comentarios_foro_interno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:id="@+id/tv_num_likes_comentarios_foro_interno"
-                android:text="5"/>
+                android:text="5" />
 
             <CheckBox
-                android:layout_marginTop="-8dp"
+                android:id="@+id/cb_like_foro_comentario_interno"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/cb_like_foro_comentario_interno"/>
+                android:layout_marginTop="-8dp" />
 
 
         </LinearLayout>

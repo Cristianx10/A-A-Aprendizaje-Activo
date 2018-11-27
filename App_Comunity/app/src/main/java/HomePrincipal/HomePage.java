@@ -13,8 +13,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.aprendizajeactivo.app_comunity.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
 
+import FirebaseConexion.FirebaseAU;
+import FirebaseConexion.Firebase_value;
 import Interfaz.ActionActivity;
+import ObjetosList.OUsuario;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class HomePage extends AppCompatActivity implements
@@ -25,12 +30,20 @@ public class HomePage extends AppCompatActivity implements
         HomeGroupCreate.OnFragmentInteractionListener
         {
 
+
+
+            private FirebaseAU au;
     private TextView mTextMessage;
 
     private Fragment frame_inicio;
     private Fragment frame_grupos;
     private Fragment frame_calendario;
     private Fragment frame_foros;
+
+    private TextView tv_logo_usuario;
+
+            static public String name;
+            static public String UID;
 
     public ImageView iv_opciones_page_index;
 
@@ -90,11 +103,30 @@ public class HomePage extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        au.getIntance();
+
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        tv_logo_usuario = findViewById(R.id.tv_name_usuario);
         iv_opciones_page_index = findViewById(R.id.iv_opciones_page_index);
+
+
+        au.readObjectRealTime(new FirebaseAU.DataObjectListener() {
+            @Override
+            public DatabaseReference getReferenceDataBase() {
+                return au.getReferencia().child(Firebase_value.USUARIOS).child(au.getUserUid()).child(Firebase_value.USUARIOS_PERFIL);
+            }
+
+            @Override
+            public void getObjectReference(@NonNull DataSnapshot dataSnapshot) {
+                OUsuario user = dataSnapshot.getValue(OUsuario.class);
+                tv_logo_usuario.setText(user.name);
+                name = user.name;
+                UID = user.uid;
+            }
+        });
 
         ActionActivity.interfazTranslucida(this);
 

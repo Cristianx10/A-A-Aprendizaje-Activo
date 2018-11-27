@@ -11,10 +11,12 @@ import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 import FirebaseConexion.FirebaseAU;
 import FirebaseConexion.Firebase_value;
+import HomePrincipal.HomePage;
 import ObjetosList.OForo;
 import ObjetosList.OUsuario;
 
@@ -45,6 +47,9 @@ public class AgregarForoU extends AppCompatActivity implements View.OnClickListe
         btn_actividad_cancelar = findViewById(R.id.btn_actividad_cancelar);
         btn_actividad_finish = findViewById(R.id.btn_actividad_finish);
 
+        btn_actividad_cancelar.setOnClickListener(this);
+        btn_actividad_finish.setOnClickListener(this);
+
     }
 
     @Override
@@ -58,39 +63,23 @@ public class AgregarForoU extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_actividad_finish:
+
                 String titulo = et_tituloActividad.getText().toString();
                 String descripcion = et_descripcionActividad.getText().toString();
                 String fecha =  et_fecha_entrega.getText().toString();
 
-                final DatabaseReference auto = au.getReferencia().child(Firebase_value.USUARIOS).child(au.getUserUid());
+                final Calendar c = Calendar.getInstance();
+                int year = c.get(Calendar.YEAR);
+                int month = c.get(Calendar.MONTH);
+                int day = c.get(Calendar.DAY_OF_MONTH);
+                String id = UUID.randomUUID().toString();
+
+                OForo  f = new OForo(titulo, descripcion, HomePage.name, day + "/" + month + "/" + year, id);
+                DatabaseReference ref = au.getReferencia().child(Firebase_value.FORO).child(Firebase_value.FOROS);
 
 
 
-                au.readObjectRealTime(new FirebaseAU.DataObjectListener() {
-                    @Override
-                    public DatabaseReference getReferenceDataBase() {
-                        return auto;
-                    }
-
-                    @Override
-                    public void getObjectReference(@NonNull DataSnapshot dataSnapshot) {
-                        OUsuario user = dataSnapshot.getValue(OUsuario.class);
-                        name = user.name;
-                    }
-                });
-
-                OForo  f = new OForo(titulo, descripcion, name, fecha);
-
-
-                DatabaseReference ref = au.getReferencia().child(Firebase_value.FORO).child(Firebase_value.FORO);
-                DatabaseReference ref2 = au.getReferencia().child(Firebase_value.FORO).child(Firebase_value.FOROS);
-
-                UUID ruta = UUID.randomUUID();
-                String r = ruta.toString();
-
-                ref.child(r).setValue(f);
-                ref2.child(r).setValue(f);
-
+                ref.child(id).setValue(f);
 
                 Toast.makeText(this, "Foro Agregado", Toast.LENGTH_SHORT).show();
 

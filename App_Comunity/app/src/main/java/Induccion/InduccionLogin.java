@@ -121,6 +121,7 @@ public class InduccionLogin extends Fragment implements View.OnClickListener{
 
                 ActionActivity.goToActivity(getActivity(), HomePage.class);
 
+
                 break;
         }
     }

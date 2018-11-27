@@ -103,7 +103,7 @@ public class HomeForos extends Fragment implements View.OnClickListener{
 
         lv_lista_foros = vista.findViewById(R.id.lv_lista_foros);
 
-        final DatabaseReference reference = au.getReferencia().child(Firebase_value.FORO);
+        final DatabaseReference reference = au.getReferencia().child(Firebase_value.FORO).child(Firebase_value.FOROS);
 
 
         foroListFirebase = new ListFirebase<OForo>(new ListFirebase.getVariables<OForo>() {
@@ -133,8 +133,13 @@ public class HomeForos extends Fragment implements View.OnClickListener{
                 ImageView iv_foto_foro = v.findViewById(R.id.iv_foto_foro);
                 TextView tv_titulo_foro = v.findViewById(R.id.tv_titulo_foro);
                 TextView tv_autor_foro = v.findViewById(R.id.tv_autor_foro);
-                TextView tv_num_respuestas_foro = v.findViewById(R.id.tv_num_respuestas_foro);
+                final TextView tv_num_respuestas_foro = v.findViewById(R.id.tv_num_respuestas_foro);
                 TextView tv_fecha_foro = v.findViewById(R.id.tv_fecha_foro);
+
+                tv_titulo_foro.setText(model.titulo);
+                tv_autor_foro.setText(model.autor);
+                tv_fecha_foro.setText(model.fecha);
+
 
                 final String uid = foroListFirebase.getAdapter().getRef(position).getKey();
 
@@ -150,15 +155,12 @@ public class HomeForos extends Fragment implements View.OnClickListener{
                     @Override
                     public void getObjectReference(@NonNull DataSnapshot dataSnapshot) {
                         conta = (int) dataSnapshot.getChildrenCount();
+                        tv_num_respuestas_foro.setText(conta + " Mensajes");
                     }
                 });
 
 
 
-                tv_titulo_foro.setText(model.titulo);
-                tv_autor_foro.setText(model.autor);
-                tv_num_respuestas_foro.setText(conta);
-                tv_fecha_foro.setText(model.fecha);
 
 
                 v.setOnClickListener(new View.OnClickListener() {
@@ -169,7 +171,7 @@ public class HomeForos extends Fragment implements View.OnClickListener{
 
                         intent.putExtra("titulo", model.titulo);
                         intent.putExtra("autor", model.autor);
-                        intent.putExtra("uid", uid);
+                        intent.putExtra("uid", model.uid);
                         intent.putExtra("descrip", model.descripcion);
 
                         startActivity(intent);
